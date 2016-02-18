@@ -1,52 +1,71 @@
 <!DOCTYPE html>
 <html>
+        <head>
+            <title>hackathon</title>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+            <link href="style.css" type="text/css" rel="stylesheet"/>
+            <script src="script.js"></script>
+        </head>
+        <body>
+        <div class="container-fluid">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">Urban Dictionary Cards</a>
+                    </div>
+                </div>
+            </nav>
 
-<head>
-    <title>hackathon</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link href="style.css" type="text/css" rel="stylesheet"/>
-    <script src="script.js"></script>
-</head>
-<body>
-    <div class="container-fluid">
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Urban Dictionary Cards</a>
+
+            <div class="col-md-12">
+                <button class="btn btn-lg bg-primary">Push</button>
+            </div>
+
+            <div id="mainBody" class="container-fluid">
+                <div id="tweets" class="col-md-6">
+                    <div class="singleTweet col-md-4">
+                        <p>Some text..</p>
+                    </div>
+                    <div class="singleTweet col-md-offset-5 col-md-4">
+                        <p>Upcoming Events..</p>
+                    </div>
+                    <div class="singleTweet col-md-4">
+                        <p>Visit Our Blog</p>
+                    </div>
+                    <div class="singleTweet col-md-offset-5 col-md-4">
+                        <p>Visit Our Blog</p>
+                    </div>
+                    <div class="singleTweet col-md-4">
+                        <p>Visit Our Blog</p>
+                    </div>
+                </div>
+                <div class="col-md-6" id="images_side">
+                    <div class="col-md-12 col-xs-6 upper_row">
+                        <div class="col-sm-4 col-xs-6 image image_one">
+                            <img src="http://betterafter50.com/wp-content/uploads/2013/01/urban-dictionary-001-291x300.jpg" class="img-responsive" alt="Image">
+                        </div>
+                        <div class="col-sm-4 col-xs-6 image image_two">
+                            <img src="http://betterafter50.com/wp-content/uploads/2013/01/urban-dictionary-001-291x300.jpg" class="img-responsive" alt="Image">
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-xs-6 middle_row">
+                        <div class="col-sm-4 col-xs-6 image image_three">
+                            <img src="http://betterafter50.com/wp-content/uploads/2013/01/urban-dictionary-001-291x300.jpg" class="img-responsive" alt="Image">
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-xs-6 lower_row">
+                        <div class="col-sm-4 col-xs-6 image image_four">
+                            <img src="http://betterafter50.com/wp-content/uploads/2013/01/urban-dictionary-001-291x300.jpg" class="img-responsive" alt="Image">
+                        </div>
+                        <div class="col-sm-4 col-xs-6 image image_five">
+                            <img src="http://betterafter50.com/wp-content/uploads/2013/01/urban-dictionary-001-291x300.jpg" class="img-responsive" alt="Image">
+                        </div>
+                    </div>
                 </div>
             </div>
-        </nav>
-
-
-        <div class="col-md-12">
-            <button class="btn btn-lg bg-primary">Push</button>
         </div>
-
-        <div id="mainBody" class="container-fluid">
-            <div id="tweets" class="col-md-6">
-                <div class="singleTweet col-md-4">
-                    <p>Some text..</p>
-                </div>
-                <div class="singleTweet col-md-offset-5 col-md-4">
-                    <p>Upcoming Events..</p>
-                </div>
-                <div class="singleTweet col-md-4">
-                    <p>Visit Our Blog</p>
-                </div>
-                <div class="singleTweet col-md-offset-5 col-md-4">
-                    <p>Visit Our Blog</p>
-                </div>
-                <div class="singleTweet col-md-4">
-                    <p>Visit Our Blog</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
 
 </body>
 </html>
