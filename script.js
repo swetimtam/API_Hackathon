@@ -1,10 +1,36 @@
 var tweets_array = []; //array to keep the tweets
-
+var output;
+var x;
 
 //function on load to pre-populate tweets
 $(document).ready(function(){
     fetch_tweets();
     append_tweets();
+    console.log("first");
+    $.ajax({
+        url:'https://api.flickr.com/services/rest?method=flickr.photos.search&api_key=6abbc58914aa0ad192b80428161ef908&format=json&nojsoncallback=1&text=lakers&page=1&per_page=10',
+        dataType:'json',
+        method:'get',
+        success: function(response){
+            output = response;
+            console.log(output);
+            for(var i = 0; i < output.photos.photo.length; i++){
+                x = imageOutput(output,i);
+                var newImg = $('<img>').attr("src",x);
+                $('.img-responsive').append(newImg);
+            }
+
+            //console.log(response.photos.photo[0].id);
+            //$("img").attr("src","https://farm2.staticflickr.com/1599/24482774874_ef26a8623c.jpg");
+        },
+        error: function(response){
+            console.log("error message");
+        }
+
+    });
+    console.log("here");
+    //var blah = new imageOutput(output);
+    //blah.reveal();
 });
 
 //function when the button is clicked
@@ -30,3 +56,37 @@ function append_tweets(){
 //function to place images properly
 
 
+
+//$.ajax({
+//    url:'https://api.flickr.com/services/rest?method=flickr.photos.getRecent&api_key=6abbc58914aa0ad192b80428161ef908&format=json&nojsoncallback=1&text=pokemon&page=1&per_page=10',
+//    dataType:'json',
+//    method:'get',
+//    success: function(response){
+//        output = response;
+//        //console.log(response.photos.photo[0].id);
+//        //$("img").attr("src","https://farm2.staticflickr.com/1599/24482774874_ef26a8623c.jpg");
+//    },
+//    error: function(response){
+//        console.log("error message");
+//    }
+//
+//});
+
+
+
+
+
+function imageOutput(source,index){
+    var farm = source.photos.photo[index].farm;
+    var photoId = source.photos.photo[index].id;
+    var server = source.photos.photo[index].server;
+    var secret = source.photos.photo[index].secret;
+    //this.createLink = function(){
+    //
+    //}
+    return createLink(farm,server,photoId,secret);
+}
+
+function createLink(farm,server,photoId,secret){
+    return "https://farm"+farm+".staticflickr.com/"+server+"/"+photoId+"_"+secret+".jpg";
+};
