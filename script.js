@@ -22,8 +22,24 @@ function clear_tweets_array(){
 //function to fetch tweets and populate the tweets_array
 //globals used: tweets_array
 function fetch_tweets(){
-    var tweets;
-    tweets_array.push(tweets);
+
+    add_tweets_to_array();
+}
+
+//function to find the image_search_word
+function find_image_search_word(){
+
+}
+
+//function to add tweets to the tweet array
+function add_tweets_to_array(){
+    var array_index=tweets_array.length;
+    var tweets={
+        text:'',
+        image_search_word:'',
+        array_index:array_index
+
+    }
 }
 
 //function for tweets on click to populate flickr photos
@@ -31,11 +47,45 @@ function fetch_tweets(){
 
 //function to place tweets properly
 function append_tweets(){
-    $('#tweets').append()
+    for(var i=0;i<tweets_array.length;i++){
+        var tweet = $('<h2>',{
+            text:tweets_array[i].text
+        });
+        $('#tweets').append(tweet);
+    }
+
 };
+
+//function to fetch photos
+function fetch_photos(){
+
+    add_photos_to_array();
+}
+
+//function to add photos to the photo_array
+function add_photos_to_array(){
+    var array_index=photo_array.length;
+    var photo={
+        url:'',
+    };
+    photo_array.push(photo);
+}
+
+//function to clear photos area
+$('#images_side').empty();
+
+//function to clear photo array
+function clear_photo_array(){
+    photo_array = [];
+}
 
 //function to place images properly
 function append_images(){
-    $('#images').append();
+    for(var i=0;i<photo_array.length;i++){
+        var image = $('<img>',{
+            src:photo_array[i].url
+        });
+        $('#images_side').append(image);
+    }
 }
 
