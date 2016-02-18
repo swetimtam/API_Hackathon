@@ -28,14 +28,19 @@ function fetch_tweets(){
 }
 
 //function to find the image_search_word
-function find_image_search_word(tweet_text_minus_hyphen){
+function find_image_search_word(tweet_position){
+    if(tweet_position == 'no_hyphen'){
 
+    }
 }
 
 function find_hyphen(tweet_text){
     for(var i=0;i<tweet_text.length;i++){
-
+        if (tweet_text[i] == '-'){
+            return i;
+        }
     }
+    return 'no_hyphen';
 }
 
 //function to add tweets to the tweet array
@@ -46,7 +51,7 @@ function add_tweets_to_array(){
         image_search_word:'',
         array_index:array_index,
     };
-    find_hyphen(tweets.text);
+    find_image_search_word(find_hyphen(tweets.text));
 }
 
 //function for tweets on click to populate flickr photos
