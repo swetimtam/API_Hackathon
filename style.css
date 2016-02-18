@@ -1,0 +1,35 @@
+#images_side{
+    height: 90vh;
+    border: 1px solid green;
+    padding: 2%;
+    box-sizing: border-box;
+}
+
+.upper_row{
+    height: 33%;
+}
+.middle_row{
+    height: 33%;
+}
+.lower_row{
+    height: 33%;
+}
+.middle_row >.image{
+    transform:translate(50%,20%);
+}
+.img-responsive{
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+}
+.image:hover{
+    opacity: 0.4;
+}
+.image{
+    transform:translateY(20%);
+    width: 50%;
+    height: 70%;
+    border-radius: 50px;
+    border: 1px solid gray;
+
+}
