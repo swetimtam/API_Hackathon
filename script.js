@@ -1,5 +1,6 @@
 var tweets_array = []; //array to keep the tweets
 var photo_array = []; //array to keep photos
+var non_search_words=['a','an','the','them','if','about','above','across','after','against','along','among','apart','around','as','at','because','before','behind','be','below','beneath','beside','between','beyond','but','by','down','during','except','for','from','in','inside','into','like','near','next','of','off','on','onto','out','outside','over','past','regarding','round','since','through','throughout','till','to','toward','under','underneath','unlike','until','up','upon','with','within','without'];
 
 //function on load to pre-populate tweets
 $(document).ready(function(){
@@ -27,8 +28,14 @@ function fetch_tweets(){
 }
 
 //function to find the image_search_word
-function find_image_search_word(){
+function find_image_search_word(tweet_text_minus_hyphen){
 
+}
+
+function find_hyphen(tweet_text){
+    for(var i=0;i<tweet_text.length;i++){
+
+    }
 }
 
 //function to add tweets to the tweet array
@@ -37,9 +44,9 @@ function add_tweets_to_array(){
     var tweets={
         text:'',
         image_search_word:'',
-        array_index:array_index
-
-    }
+        array_index:array_index,
+    };
+    find_hyphen(tweets.text);
 }
 
 //function for tweets on click to populate flickr photos
