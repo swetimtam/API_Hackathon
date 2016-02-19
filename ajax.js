@@ -23,7 +23,7 @@ function getVines(name,song) {
             for (var k in test) {
                 if (test.hasOwnProperty(k)) {
                     // appending magic happens here
-                    $('body').append(test[k].html);
+                    $('.image_side').append(test[k].html);
                 }
             }
         },
@@ -41,7 +41,7 @@ $(document).ready(function () {
         success: function (response) {
             console.log('AJAX Success function called, with the following result:', response);
             //loops through every song in top 10 for info and adds it to an array of objects
-            for (var i = 0; i < response.feed.entry.length; i++) {
+            for (var i = 0; i < 6; i++) {
                 var artist = {};
                 //console logs the artist and song name of the top 10 itune songs
                 artist.name = (response.feed.entry[i]['im:artist'].label);
@@ -57,25 +57,4 @@ $(document).ready(function () {
     });
 });
 
-//    $.ajax({
-//        dataType:'json',
-//        url:'http://s-apis.learningfuze.com/hackathon/vine/index.php',
-//        data: data,
-//        cache: false,
-//        success: function(response){
-//            console.log("success", response);
-//            output = response;
-//            var test = cleanVines(output.vines);
-//            console.log("This is the clean list: ", test);
-//
-//            for(var k in test){
-//                if(test.hasOwnProperty(k)){
-//                    $('#images_side').append(test[k].html);
-//                }
-//            }
-//        },
-//        error: function(response){
-//            console.log("error message");
-//        }
-//
-//});
+

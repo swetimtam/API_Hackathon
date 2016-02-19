@@ -57,26 +57,52 @@ function add_songs_to_array(){
 
 function append_top10_list(){
     for(var i=0;i<top10.length;i++){
-        append_songs(top10[i]);
+        //append_songs(top10[i]);
+        var songart = $('<img>',{
+            src:top10[i].albumArt
+        });
+        var songinfo= $('<p>',{
+            text:top10[i].name + ' - ' + top10[i].song
+        });
+
+        var songdiv = $('<div>',{
+            class:'imgdiv cubediv'+i
+        });
+        $('.cubediv').eq(i).append(songdiv);
+
+        var cube = $(".cubediv"+i);
+        $(cube).append(songart).append(songinfo);
+
+    //$(songdiv).on('click',function(){
+    //    //console.log(song.name + song.song);
+    //    getVines(song.name,song.song);
+    //});
     }
 }
 
 // /function to place song properly
 function append_songs(song){
-        var songdiv = $('<div>');
-        var songart = $('<img>',{
-            src:song.albumArt,
+    //var songdiv = $('<div>');
+    //var songdivArray=[];
+    var songart = $('<img>',{
+        src:song.albumArt
+    });
+    var songinfo= $('<p>',{
+        text:song.name + ' - ' + song.song
+    });
+    for( var i=0; i<1; i++) {
+        var songdiv = $('<div>',{
+            class:'cubediv'+i
         });
-        var songinfo= $('<p>',{
-           text:song.name + ' - ' + song.song
-        });
+        $('.cubediv').eq(i).append(songdiv);
 
-        $('.first_part').append(songdiv);
-        $(songdiv).append(songart).append(songinfo);
-        $(songdiv).on('click',function(){
-            //console.log(song.name + song.song);
-            getVines(song.name,song.song);
-        })
+        var cube = $(".cubediv"+i);
+        $(cube).append(songart).append(songinfo);
+    }
+    $(songdiv).on('click',function(){
+        //console.log(song.name + song.song);
+        getVines(song.name,song.song);
+    });
 
 }
 
