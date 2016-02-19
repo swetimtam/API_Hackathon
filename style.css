@@ -79,7 +79,7 @@ li > a, .boxText{
     text-shadow: 4px 4px 2px gray;
     font-size: 3em;
     font-family:"Brush Script MT";
-    //background: linear-gradient(lightgray,grey);
+//background: linear-gradient(lightgray,grey);
 }
 li>a:hover{/*album name list hover effect*/
     font-size:3.3em ;
@@ -108,5 +108,60 @@ body::after{
 }
 .animate::after{
     transform: translateX(-100%)!important;
+}
+
+
+.wrap {
+    perspective: 253vw;
+    perspective-origin: 152% -72vw;
+    position: relative;
+    left: 34%;
+    top: 24%;
+
+}
+@keyframes rotate {
+    from {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+
+    to {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+.cube {
+    position: relative;
+    width: 20vh;
+    transform-style: preserve-3d;
+    animation: rotate 10s infinite linear;
+}
+.cubediv {
+    position: absolute;
+    width: 26vh;
+    height: 26vh;
+    background-color: transparent;
+    border: 3px solid black;
+
+}
+.back {
+    transform: translateZ(-100px) rotateY(180deg);
+}
+.right {
+    transform: rotateY(-270deg) translateX(100px);
+    transform-origin: top right;
+}
+.left {
+    transform: rotateY(270deg) translateX(-100px);
+    transform-origin: left center;
+}
+.top {
+    transform: rotateX(-90deg) translateY(-100px);
+    transform-origin: top center;
+}
+.bottom {
+    transform: rotateX(90deg) translateY(100px);
+    transform-origin: bottom center;
+}
+.front {
+    transform: translateZ(100px);
 }
 
