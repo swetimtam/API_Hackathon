@@ -4,6 +4,8 @@
     padding: 2%;
     box-sizing: border-box;
     display:none;
+    left: 18%;
+    bottom: 8vh;
 }
 
 .upper_row{
@@ -36,10 +38,10 @@
 
 .image{
     transform:translateY(20%);
-    width: 25%;
-    height: 70%;
     border-radius: 50px;
     border: 1px solid gray;
+    width: 31%;
+    height: 84%;
 
 }
 
