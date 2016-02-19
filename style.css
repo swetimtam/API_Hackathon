@@ -111,6 +111,18 @@ body::after{
 }
 
 
+.vineDiv {
+    display: block;
+    width:33%;
+    height: 33%;
+    margin: auto;
+}
+
+/*.vineDiv iframe{*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+/*}*/
+
 .wrap {
     perspective: 253vw;
     perspective-origin: 152% -72vw;
@@ -164,4 +176,5 @@ body::after{
 .front {
     transform: translateZ(100px);
 }
+
 
