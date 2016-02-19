@@ -1,32 +1,61 @@
-var tweets_array = []; //array to keep the tweets
+//global variables
+var top10Music = [];
 
-
-//function on load to pre-populate tweets
-$(document).ready(function(){
-    fetch_tweets();
-    append_tweets();
-});
-
-//function when the button is clicked
-$('button').click(function(){
-
-});
-
-//function to fetch tweets and populate the tweets_array
-//globals used: tweets_array
-function fetch_tweets(){
-    var tweets;
-    tweets_array.push(tweets);
+//function to compare author of vines to each other, if the same, then remove duplicates
+function noDupVines(arr) {
+    var output = {};
+    var len = arr.length;
+    for (var i = 0; i < len; i++) {
+        if (arr[i] !== null) {
+            output[arr[i].author_url] = arr[i];
+        }
+    }
+    return output;
 }
 
-//function for tweets on click to populate flickr photos
-//@parameters: first noun after the hyphen to be sent to flickr for image lookup
+//function for when songs get clicked to hide songs, and show vines
+function song_click() {
+    $('.first_part').hide();
+    $('#images_side').show();
+}
 
-//function to place tweets properly
-function append_tweets(){
+// /function to place song properly
+function append_songs(song, i) {
+    if (i % 2 == 0) {
+        var songDiv = $('<div>', {
+            class: 'row'
+        });
+        var songArt = $('<img>', {
+            class: 'evenImg cover',
+            src: song.albumArt,
+        });
+        var songInfo = $('<p>', {
+            class: 'evenList boxText',
+            text: song.name + ' - ' + song.song
+        });
+    }
+    else {
+        var songDiv = $('<div>', {
+            class: 'row'
+        });
+        var songArt = $('<img>', {
+            class: 'oddImg cover',
+            src: song.albumArt,
+        });
+        var songInfo = $('<p>', {
+            class: 'oddList boxText',
+            text: song.name + ' - ' + song.song
+        });
+    }
+    $('.first_part').append(songDiv);
+    $(songDiv).append(songArt).append(songInfo);
+    $(songDiv).on('click', function () {
+        //console.log(song.name + song.song);
+        $('div:not(body)').hide();
+        getVines(song.name, song.song);
+    })
+}
 
-};
 
-//function to place images properly
 
 

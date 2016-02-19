@@ -1,0 +1,99 @@
+#main_body{/*main page style*/
+    height: 100%;
+    z-index:1 ;
+    background: #222222;
+}
+.header{/* header have liner color effect and some style*/
+    margin: 0 auto;
+    width: 100%;
+    height: 20vh;
+    text-align: center;
+    font-family:"Brush Script MT";
+    background-image: url("");
+    background:linear-gradient(#8C6F66,#5C5350);
+    border: 10px solid black;
+}
+.first_part{/*this first part is showing iTunes photos and album name, This is down the header*/
+    margin: 0 10%;
+    width: 80%;
+    height: auto;
+    background-image: url("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcScVtAyceRnWZ92jVdNo94jNMRHKCaZ3ckFK9BxU5Vq4VC7Jzd1");
+    opacity: 0.7;
+
+}
+.row{/*first part have rows with pitcher and album name in ul*/
+    width:80%;
+    height: 20%;
+    border: 5px solid black;
+    border-radius: 10px;
+    margin: 1% auto;
+    background-color: #C9A89D;
+    opacity: .9;
+    cursor: pointer;
+}
+/**/
+.first_part > .row > .cover{/*first part rows cover have these styling*/
+    width: 30%;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 100%;
+}
+.evenImg{/*first part odd rows style*/
+    float: left;
+}
+.oddImg{/*first part even rows style*/
+    float:right;
+}
+
+
+.evenList{/*first part row un order for odd list style created dynamic class*/
+    text-align: center;
+    transform: translate(-10%,200%);
+}
+.oddList {/*first part row un order for even list style dynamic class*/
+    text-align: center;
+    transform: translate(10%,200%);
+}
+.cover:hover{/*album image hover effect*/
+    opacity: 0.5;
+    border: 10px solid black;
+}
+
+.boxText{
+    color:black;
+    text-shadow: 4px 4px 2px gray;
+    font-size:200%;
+    font-family:"Brush Script MT";
+    //background: linear-gradient(lightgray,grey);
+}
+
+/*p:hover{!*album name list hover effect*!*/
+    /*font-size:3.3em ;*/
+/*}*/
+
+
+body::before,body::after{/*page load animation still in progress*/
+    content: '';
+    background: #222222;
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    transition-duration: 4s;
+    transform: translateX(0%);
+    top: 0px;
+    animation-delay: 3s;
+    z-index: 1000;
+}
+body::before{
+    right: 0px;
+}
+body::after{
+    left: 0px;
+}
+.animate::before{
+    transform: translateX(100%)!important;
+}
+.animate::after{
+    transform: translateX(-100%)!important;
+}
+
