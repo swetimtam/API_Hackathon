@@ -22,7 +22,7 @@
 }
 
 .first_part{
-    /*visibility: hidden;*/
+    display: none;
     margin: 0 auto;
     width: 80%;
     height: auto;
