@@ -18,23 +18,38 @@ $(document).ready(function () {
                 artist.name = (response.feed.entry[i]['im:artist'].label);
                 artist.song = (response.feed.entry[i]['im:name'].label);
                 artist.albumArt = (response.feed.entry[i]['im:image'][2].label);
-                artist.genre = (response.feed.entry[i].category.attribute.label);
+                //artist.genre = (response.feed.entry[i].category.attribute.label);
                 top10.push(artist);
             }
             console.log(top10);
         }
     });
+    var data = {
+        search_term:'Flo Rida',
+        count: 50
+    };
+
+
     $.ajax({
-        dataType: 'json',
+        dataType:'json',
+        url:'http://s-apis.learningfuze.com/hackathon/vine/index.php',
+        data: data,
         cache: false,
-        url: 'http://s-apis.learningfuze.com/hackathon/vine/index.php?api_key=mt2yiXr6Gj&format=json&nojsoncallback=1&search_term=flo%20rida%20my%20house',
-        success: function (response) {
-            console.log('AJAX Success function called, with the following result:', response);
-            //loops through up to 15 vines with search
-            for (var i = 0; i < response.vines.length; i++) {
-                //console logs the artist and song name of the top 10 itune songs
-                $('body').append(response.vines[i].html);
+        success: function(response){
+            console.log("success", response);
+            output = response;
+            var test = cleanVines(output.vines);
+            console.log("This is the clean list: ", test);
+
+            for(var k in test){
+                if(test.hasOwnProperty(k)){
+                    $('body').append(test[k].html);
+                }
             }
+        },
+        error: function(response){
+            console.log("error message");
         }
+
     });
 });
