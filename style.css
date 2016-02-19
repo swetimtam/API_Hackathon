@@ -77,29 +77,28 @@
     75%  {background-color:gainsboro; left:0px; top:200px;}
     100% {background-color:#C9A89D; left:0px; top:0px;}
 }
-.first_img,.third_img,.fifth_img{
+.first_part > .row > .cover{
     width: 30%;
     height: 100%;
     border: 1px solid black;
     border-radius: 100%;
+}
+.first_part > .row:nth-child(odd) > .cover {
     float: left;
 }
-.song1_link,.song3_link,.song5_link{
-    float: right;
-    transform: translate(-10%,200%);
-    text-align: center;
-}
-.second_img,.fourth_img{
-    width: 30%;
-    height: 100%;
-    border: 1px solid black;
-    border-radius: 100%;
+.first_part > .row:nth-child(even) > .cover {
     float:right;
 }
-.song2_link,.song4_link{
+.first_part > .row > ul {
+    text-align: center;
+}
+.first_part > .row:nth-child(odd) > ul {
+    float: right;
+    transform: translate(-10%,200%);
+}
+.first_part > .row:nth-child(even) > ul {
     float: left;
     transform: translate(10%,200%);
-    text-align: center;
 }
 .cover:hover{
     opacity: 0.5;
