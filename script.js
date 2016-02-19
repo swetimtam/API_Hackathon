@@ -1,23 +1,34 @@
 var tweets_array = []; //array to keep the tweets
 var output;
-var x;
+//var x;
 
 //function on load to pre-populate tweets
 $(document).ready(function(){
     fetch_tweets();
     append_tweets();
 
+    var data = {
+        search_term:'Flo Rida',
+        count: 50
+    };
+
+
     $.ajax({
-        url:'https://api.flickr.com/services/rest?method=flickr.photos.search&api_key=6abbc58914aa0ad192b80428161ef908&format=json&nojsoncallback=1&text= &page=1&per_page=10',
         dataType:'json',
-        method:'get',
+        url:'http://s-apis.learningfuze.com/hackathon/vine/index.php',
+        data: data,
+        mathod: 'GET',
+        cache: false,
         success: function(response){
+            console.log("success", response);
             output = response;
-            console.log(output);
-            for(var i = 0; i < output.photos.photo.length; i++){
-                x = imageOutput(output,i);
-                var newImg = $('<img>').attr("src",x);
-                $('body').append(newImg);
+            var test = cleanVines(output.vines);
+            console.log("This is the clean list: ", test);
+
+            for(var k in test){
+                if(test.hasOwnProperty(k)){
+                    $('body').append(test[k].html);
+                }
             }
         },
         error: function(response){
@@ -29,6 +40,17 @@ $(document).ready(function(){
 
 });
 
+function cleanVines (arr){
+    var output = {};
+    var len = arr.length;
+    for(var i = 0; i < len; i++){
+        if(arr[i] !== null){
+            output[arr[i].author_url] = arr[i];
+        }
+    }
+
+    return output;
+}
 //function when the button is clicked
 $('button').click(function(){
 
@@ -77,16 +99,9 @@ function append_tweets(){
 // return: created link to image url
 // purpose: This function takes the object returned from the ajax call to flickr and creates the image url based on the keys given in the object
 
-function imageOutput(source,index){
-    var farm = source.photos.photo[index].farm;
-    var photoId = source.photos.photo[index].id;
-    var server = source.photos.photo[index].server;
-    var secret = source.photos.photo[index].secret;
-    //this.createLink = function(){
-    //
-    //}
-    var link = createLink(farm,server,photoId,secret);
-    return link;
+function vineOutput(source,index){
+    var vineVideo = source.vines[index].html;
+    return vineVideo;
 }
 
 
@@ -95,6 +110,6 @@ function imageOutput(source,index){
 //Globals: none
 // return: string to image url
 // purpose: This function takes key values from the object to create the url link to the image
-function createLink(farm,server,photoId,secret){
-    return "https://farm"+farm+".staticflickr.com/"+server+"/"+photoId+"_"+secret+".jpg";
-};
+//function createLink(farm,server,photoId,secret){
+//    return "https://farm"+farm+".staticflickr.com/"+server+"/"+photoId+"_"+secret+".jpg";
+//};
