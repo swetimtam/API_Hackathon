@@ -1,5 +1,6 @@
 #main_body{/*main page style*/
-    z-index: 1000;
+    height: 100%;
+    z-index:1 ;
     background: #222222;
 }
 .header{/* header have liner color effect and some style*/
@@ -57,14 +58,12 @@
     width: 25%;
 }
 
-.first_part > .row:nth-child(odd) > ul, .evenList{/*first part row un order for odd list style*/
+.first_part > .row:nth-child(odd) > ul, .evenList{/*first part row un order for odd list style created dynamic class*/
     text-align: center;
-    width: 60%;
     transform: translate(-10%,200%);
 }
-.first_part > .row:nth-child(even) > ul, .oddList {/*first part row un order for even list style*/
+.first_part > .row:nth-child(even) > ul, .oddList {/*first part row un order for even list style dynamic class*/
     text-align: center;
-    width: 60%;
     transform: translate(10%,200%);
 }
 .cover:hover{/*album image hover effect*/
@@ -85,16 +84,24 @@ li>a:hover{/*album name list hover effect*/
     font-size:3.3em ;
 }
 
-#main_body::before,#main_body::after{/*page load animation still in progress*/
+
+body::before,body::after{/*page load animation still in progress*/
     content: '';
-    z-index: 1000;
     background: #222222;
-    position: absolute;
+    height: 100%;
+    width: 50%;
+    position: fixed;
     transition-duration: 4s;
     transform: translateX(0%);
+    top: 0px;
+    animation-delay: 3s;
+    z-index: 1000;
 }
-#main_body::before{
-    right: 0;
+body::before{
+    right: 0px;
+}
+body::after{
+    left: 0px;
 }
 .animate::before{
     transform: translateX(100%)!important;

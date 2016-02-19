@@ -1,7 +1,6 @@
 //global variables
 var top10Music = [];
 
-
 //function to compare author of vines to each other, if the same, then remove duplicates
 function noDupVines(arr) {
     var output = {};
@@ -43,7 +42,7 @@ function append_songs(song, i) {
             class: 'oddImg cover',
             src: song.albumArt,
         });
-        var songInfo = $('<span>', {
+        var songInfo = $('<p>', {
             class: 'oddList boxText',
             text: song.name + ' - ' + song.song
         });
@@ -52,11 +51,13 @@ function append_songs(song, i) {
     $(songDiv).append(songArt).append(songInfo);
     $(songDiv).on('click', function () {
         //console.log(song.name + song.song);
+        $('div:not(body)').hide();
         getVines(song.name, song.song);
     })
 }
-$("#main_body").addClass('animate');
-
+$("#main_body").click(function(){
+    $("#main_body").addClass('animate');
+});
 
 
 
