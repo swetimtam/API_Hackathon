@@ -1,7 +1,6 @@
 //global variables
 var top10Music = [];
 
-
 //function to compare author of vines to each other, if the same, then remove duplicates
 function noDupVines(arr) {
     var output = {};
@@ -19,34 +18,45 @@ function song_click() {
     $('.row').hide();
 }
 
-//function for song on click to populate flickr photos
-//@parameters: first noun after the hyphen to be sent to flickr for image lookup
-
-function append_top10_list() {
-    for (var i = 0; i < top10Music.length; i++) {
-        append_songs(top10Music[i]);
-    }
-}
-
 // /function to place song properly
-function append_songs(song) {
-    var songDiv = $('<div>');
-    var songArt = $('<img>', {
-        src: song.albumArt,
-    });
-    var songInfo = $('<p>', {
-        text: song.name + ' - ' + song.song
-    });
-
+function append_songs(song, i) {
+    if (i % 2 == 0) {
+        var songDiv = $('<div>', {
+            class: 'row'
+        });
+        var songArt = $('<img>', {
+            class: 'evenImg cover',
+            src: song.albumArt,
+        });
+        var songInfo = $('<p>', {
+            class: 'evenList boxText',
+            text: song.name + ' - ' + song.song
+        });
+    }
+    else {
+        var songDiv = $('<div>', {
+            class: 'row'
+        });
+        var songArt = $('<img>', {
+            class: 'oddImg cover',
+            src: song.albumArt,
+        });
+        var songInfo = $('<p>', {
+            class: 'oddList boxText',
+            text: song.name + ' - ' + song.song
+        });
+    }
     $('.first_part').append(songDiv);
     $(songDiv).append(songArt).append(songInfo);
     $(songDiv).on('click', function () {
-        song_click();
+        //console.log(song.name + song.song);
+        $('div:not(body)').hide();
         getVines(song.name, song.song);
     })
 }
-$("#main_body").addClass('animate');
-
+$("#main_body").click(function(){
+    $("#main_body").addClass('animate');
+});
 
 
 
