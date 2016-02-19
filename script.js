@@ -5,7 +5,7 @@ var non_search_words=['a','an','the','them','if','about','above','across','after
 //function on load to pre-populate tweets
 $(document).ready(function(){
     fetch_tweets();
-    //append_tweets();
+    append_tweets();
 });
 
 //function when the button is clicked
@@ -60,10 +60,10 @@ function add_tweets_to_array(){
 //function to place tweets properly
 function append_tweets(){
     for(var i=0;i<tweets_array.length;i++){
-        var tweet = $('<h2>',{
+        var tweet = $('<p>',{
             text:tweets_array[i].text
         });
-        $('#tweets').append(tweet);
+        $('.singleTweet').eq([i]).append(tweet);
     }
 
 };
