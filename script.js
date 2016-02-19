@@ -20,6 +20,7 @@ $(document).ready(function(){
 function tweet_click(){
     $('#tweets').hide();
     $('#images_side').show();
+    append_images();
 }
 
 
@@ -111,7 +112,7 @@ function clear_photo_array(){
 function append_images(){
     for(var i=0;i<photo_array.length;i++){
         var image = $('<img>',{
-            src:photo_array[i].url
+            class:'img_sr'
         });
         $('#images_side').append(image);
     }
