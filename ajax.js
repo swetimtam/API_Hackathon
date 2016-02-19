@@ -17,7 +17,7 @@ function getVines(name,song) {
         success: function (response) {
             console.log("success", response);
             output = response;
-            var test = cleanVines(output.vines);
+            var test = noDupVines(output.vines);
             console.log("This is the clean list: ", test);
 
             for (var k in test) {
