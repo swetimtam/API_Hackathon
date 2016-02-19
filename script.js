@@ -29,9 +29,6 @@ function tweet_click(){
     append_images();
 }
 
-
-
-
 //function to clear tweets
 function clear_tweets(){
     $('#tweets p').empty();
@@ -42,7 +39,6 @@ function clear_tweets_array(){
 //function to fetch tweets and populate the tweets_array
 //globals used: tweets_array
 function fetch_tweets(){
-
     add_tweets_to_array();
 }
 
