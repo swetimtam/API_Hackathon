@@ -22,6 +22,7 @@ $(document).ready(function () {
                 top10.push(artist);
             }
             console.log(top10);
+            append_songs();
         }
     });
     var data = {
