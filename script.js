@@ -1,3 +1,4 @@
+
 var tweets_array = []; //array to keep the tweets
 var output;
 //var x;
@@ -6,6 +7,10 @@ var output;
 $(document).ready(function(){
     fetch_tweets();
     append_tweets();
+
+    $('#tweets p').click(function(){
+        song_click();
+    });
 
     var data = {
         search_term:'Flo Rida',
@@ -48,68 +53,93 @@ function cleanVines (arr){
             output[arr[i].author_url] = arr[i];
         }
     }
-
     return output;
 }
-//function when the button is clicked
-$('button').click(function(){
 
-});
+var song_array = [{text:'cats are great',image_search_word:'cats',array_index:0},{text:'dogs are great',image_search_word:'dogs',array_index:1},{text:'monkeys are great',image_search_word:'monkeys',array_index:2},{text:'wombats are great',image_search_word:'wombats',array_index:3},{text:'horses are great',image_search_word:'horses',array_index:4}]; //array to keep the tweets
+var vine_array = [{url:'https://pbs.twimg.com/profile_images/447374371917922304/P4BzupWu.jpeg'},{url:'http://cdn.earthporm.com/wp-content/uploads/2014/07/cute-bunnies-tongues-6.jpg'},{url:'https://i.ytimg.com/vi/2hh9lWK-iwc/maxresdefault.jpg'},{url:'http://cdn.earthporm.com/wp-content/uploads/2014/07/cute-bunnies-tongues-1.jpg'},{url:'http://www.fuzzfeed.com/wp-content/uploads/2015/10/cute-baby-bunny-wallpaper-hq-mjhek.jpg'}]; //array to keep photos
+var non_search_words=['a','an','the','them','if','about','above','across','after','against','along','among','apart','around','as','at','because','before','behind','be','below','beneath','beside','between','beyond','but','by','down','during','except','for','from','in','inside','into','like','near','next','of','off','on','onto','out','outside','over','past','regarding','round','since','through','throughout','till','to','toward','under','underneath','unlike','until','up','upon','with','within','without'];
 
-//function to fetch tweets and populate the tweets_array
+//function for when tweets get clicked to hide tweets, and show images
+function song_click(){
+    $('#tweets').hide();
+    $('#images_side').show();
+    append_vine();
+}
+
+//function to clear tweets
+function clear_songs(){
+    $('#tweets p').empty();
+}
+function clear_tweets_array(){
+  tweets_array = [];
+}
+//function to fetch songs and populate the tweets_array
 //globals used: tweets_array
-function fetch_tweets(){
-    var tweets;
-    tweets_array.push(tweets);
+
+function fetch_songs(){
+    add_songs_to_array();
+}
+
+//function to add tweets to the tweet array
+function add_songs_to_array(){
+    var array_index=song_array.length;
+    var tweets={
+        text:'',
+        image_search_word:'',
+        array_index:array_index
+    };
 }
 
 //function for tweets on click to populate flickr photos
 //@parameters: first noun after the hyphen to be sent to flickr for image lookup
 
 //function to place tweets properly
-function append_tweets(){
+function append_songs(){
+    for(var i=0;i<song_array.length;i++){
+        var song = $('<p>',{
+            text:song_array[i].text
+        });
+        $('.singleTweet').eq([i]).append(song);
+    }
 
-};
+}
+
+//function to fetch photos
+function fetch_photos(){
+
+    add_vine_to_array();
+}
+
+//function to add photos to the photo_array
+function add_vine_to_array(){
+    var array_index=vine_array.length;
+    var vine={
+        url:''
+    };
+    photo_array.push(vine);
+}
+
+//function to clear photos area
+$('#images_side').empty();
+
+//function to clear photo array
+function clear_photo_array(){
+    photo_array = [];
+}
 
 //function to place images properly
-
-
-
-//$.ajax({
-//    url:'https://api.flickr.com/services/rest?method=flickr.photos.getRecent&api_key=6abbc58914aa0ad192b80428161ef908&format=json&nojsoncallback=1&text=pokemon&page=1&per_page=10',
-//    dataType:'json',
-//    method:'get',
-//    success: function(response){
-//        output = response;
-//        //console.log(response.photos.photo[0].id);
-//        //$("img").attr("src","https://farm2.staticflickr.com/1599/24482774874_ef26a8623c.jpg");
-//    },
-//    error: function(response){
-//        console.log("error message");
-//    }
-//
-//});
-
-
-
-
-// imageOutput
-//params: source, index
-//Globals: source
-// return: created link to image url
-// purpose: This function takes the object returned from the ajax call to flickr and creates the image url based on the keys given in the object
-
-function vineOutput(source,index){
-    var vineVideo = source.vines[index].html;
-    return vineVideo;
+function append_vine(){
+    for(var i=0;i<vine_array.length;i++){
+        var image = $('<img>',{
+            src:vine_array[i].url
+        });
+        var testimg = image.addClass('img-responsive');
+        $('.image').eq([i]).append(testimg);
+    }
 }
 
 
-// createLink
-//params: farm, server, photoId, secret
-//Globals: none
-// return: string to image url
-// purpose: This function takes key values from the object to create the url link to the image
-//function createLink(farm,server,photoId,secret){
-//    return "https://farm"+farm+".staticflickr.com/"+server+"/"+photoId+"_"+secret+".jpg";
-//};
+
+
+
