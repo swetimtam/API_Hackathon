@@ -21,7 +21,9 @@ function song_click() {
 // /function to place song properly
 function append_songs(song, i) {
     if (i % 2 == 0) {
-        var spanText = 'Genre: ' + song.genre + " Release Date: " + song.released;
+        var spanTextGenre = 'Genre: ' + song.genre;
+        var spanTextRelease = "Release Date: " + song.released;
+
         var songDiv = $('<div>', {
             class: 'row'
         });
@@ -35,12 +37,17 @@ function append_songs(song, i) {
         });
         var songInfoBox = $('<span>',{
             class:'infoSpan',
-            text:spanText
+            text:spanTextGenre
+        });
+        var songInfoBox2 = $('<span>',{
+            class:'infoSpan',
+            text:spanTextRelease
         });
 
     }
     else {
-        var spanText = 'Genre: ' + song.genre + " Release Date: " + song.released;
+        var spanTextGenre = 'Genre: ' + song.genre;
+        var spanTextRelease = "Release Date: " + song.released;
         var songDiv = $('<div>', {
             class: 'row'
         });
@@ -54,11 +61,15 @@ function append_songs(song, i) {
         });
         var songInfoBox = $('<span>',{
             class:'infoSpan',
-            text:spanText
+            text:spanTextGenre
+        });
+        var songInfoBox2 = $('<span>',{
+            class:'infoSpan',
+            text:spanTextRelease
         });
     }
     $('.first_part').append(songDiv);
-    $(songDiv).append(songArt).append(songInfo).append(songInfoBox);
+    $(songDiv).append(songArt).append(songInfo).append(songInfoBox).append(songInfoBox2);
     $(songDiv).on('click', function () {
         //console.log(song.name + song.song);
         $(".row").hide();
