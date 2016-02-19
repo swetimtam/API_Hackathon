@@ -4,11 +4,8 @@ var output;
 
 //function on load to pre-populate songs
 $(document).ready(function(){
-    //fetch_tweets();
-    //append_tweets();
-
     $('#mainBody').click(function(){
-        song_click();
+        //song_click();
     });
 });
 
@@ -59,11 +56,17 @@ function add_songs_to_array(){
 
 //function to place song properly
 function append_songs(){
-    for(var i=0;i<song_array.length;i++){
-        var song = $('<p>',{
-            text:song_array[i].text
+    for(var i=0;i<top10.length;i++){
+        var songdiv = $('<div>');
+        var songart = $('<img>',{
+            src:top10[i].albumArt,
         });
-        $('.first_part').eq([i]).append(song);
+        var songinfo= $('<p>',{
+           text:top10[i].name + ' - ' + top10[i].song
+        });
+
+        $('.first_part').append(songdiv);
+        $(songdiv).append(songart).append(songinfo);
     }
 
 }
