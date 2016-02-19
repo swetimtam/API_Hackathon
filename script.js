@@ -5,8 +5,6 @@ var output;
 
 //function on load to pre-populate songs
 $(document).ready(function(){
-    fetch_tweets();
-    append_tweets();
 
     $('#mainBody').click(function(){
         song_click();
