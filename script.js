@@ -3,12 +3,12 @@ var tweets_array = []; //array to keep the tweets
 var output;
 //var x;
 
-//function on load to pre-populate tweets
+//function on load to pre-populate songs
 $(document).ready(function(){
     fetch_tweets();
     append_tweets();
 
-    $('#tweets p').click(function(){
+    $('#mainBody').click(function(){
         song_click();
     });
 
@@ -62,45 +62,45 @@ var non_search_words=['a','an','the','them','if','about','above','across','after
 
 //function for when tweets get clicked to hide tweets, and show images
 function song_click(){
-    $('#tweets').hide();
+    $('.first_part').hide();
     $('#images_side').show();
     append_vine();
 }
 
-//function to clear tweets
+//function to clear songs
 function clear_songs(){
-    $('#tweets p').empty();
-}
-function clear_tweets_array(){
-  tweets_array = [];
-}
-//function to fetch songs and populate the tweets_array
-//globals used: tweets_array
+    $('#mainBody p').empty();
+};
+function clear_song_array(){
+  song_array = [];
+};
+//function to fetch songs and populate the song_array
+//globals used: song_array
 
 function fetch_songs(){
     add_songs_to_array();
 }
 
-//function to add tweets to the tweet array
+//function to add song to the tweet array
 function add_songs_to_array(){
     var array_index=song_array.length;
-    var tweets={
+    var song={
         text:'',
         image_search_word:'',
         array_index:array_index
     };
 }
 
-//function for tweets on click to populate flickr photos
+//function for song on click to populate flickr photos
 //@parameters: first noun after the hyphen to be sent to flickr for image lookup
 
-//function to place tweets properly
+//function to place song properly
 function append_songs(){
     for(var i=0;i<song_array.length;i++){
         var song = $('<p>',{
             text:song_array[i].text
         });
-        $('.singleTweet').eq([i]).append(song);
+        $('.first_part').eq([i]).append(song);
     }
 
 }
@@ -117,7 +117,7 @@ function add_vine_to_array(){
     var vine={
         url:''
     };
-    photo_array.push(vine);
+    vine_array.push(vine);
 }
 
 //function to clear photos area
@@ -125,7 +125,7 @@ $('#images_side').empty();
 
 //function to clear photo array
 function clear_photo_array(){
-    photo_array = [];
+    vine_array = [];
 }
 
 //function to place images properly
