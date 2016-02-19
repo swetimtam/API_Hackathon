@@ -55,9 +55,7 @@ function append_songs(song, i) {
         getVines(song.name, song.song);
     })
 }
-$("#main_body").click(function(){
-    $("#main_body").addClass('animate');
-});
+
 
 
 
