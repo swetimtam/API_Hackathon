@@ -1,17 +1,33 @@
 var tweets_array = [{text:'cats are great',image_search_word:'cats',array_index:0},{text:'dogs are great',image_search_word:'dogs',array_index:1},{text:'monkeys are great',image_search_word:'monkeys',array_index:2}]; //array to keep the tweets
-var photo_array = []; //array to keep photos
+var photo_array = [{src:'http://www.planwallpaper.com/static/images/Winter-Tiger-Wild-Cat-Images.jpg'},{src:'http://www.planwallpaper.com/static/images/magic-of-blue-universe-images.jpg'},{src:'http://www.gettyimages.ca/gi-resources/images/Homepage/Category-Creative/UK/UK_Creative_462809583.jpg'},{src:'http://stories.gettyimages.com/wp-content/uploads/2015/08/GettyImages-557187411-11.jpg'},{src:'http://www.gettyimages.ca/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg'}]; //array to keep photos
 var non_search_words=['a','an','the','them','if','about','above','across','after','against','along','among','apart','around','as','at','because','before','behind','be','below','beneath','beside','between','beyond','but','by','down','during','except','for','from','in','inside','into','like','near','next','of','off','on','onto','out','outside','over','past','regarding','round','since','through','throughout','till','to','toward','under','underneath','unlike','until','up','upon','with','within','without'];
+
+
 
 //function on load to pre-populate tweets
 $(document).ready(function(){
     fetch_tweets();
     //append_tweets();
+
+    //function for click event on tweets
+    $('#tweets p').click(function(){
+        console.log('tweets clicked');
+        tweet_click();
+    })
 });
+
+//function for when tweets get clicked to hide tweets, and show images
+function tweet_click(){
+    $('#tweets').hide();
+    $('#images_side').show();
+}
+
+
 
 //function when the button is clicked
 $('button').click(function(){
-    clear_tweets_array();
-    clear_tweets();
+    //clear_tweets_array();
+    //clear_tweets();
 });
 //function to clear tweets
 function clear_tweets(){
