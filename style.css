@@ -1,120 +1,87 @@
 
-#images_side{
-    height: 90vh;
-    padding: 2%;
-    box-sizing: border-box;
-    display:none;
-    left: 18%;
-    bottom: 8vh;
-}
-
-.upper_row{
-    height: 33%;
-}
-.middle_row{
-    height: 33%;
-}
-.lower_row{
-    height: 33%;
-}
-.middle_row >.image{
-    transform:translate(50%,20%);
-}
-.img-responsive{
-    width: 100%;
-    height: 100%;
-    border-radius: 50px;
-}
-.image:hover{
-    opacity: 0.4;
-}
-@-webkit-keyframes image_display {
-    0%   {background-color:red; left:0px; top:0px;}
-    25%  {background-color:yellow; left:200px; top:0px;}
-    50%  {background-color:blue; left:200px; top:200px;}
-    75%  {background-color:green; left:0px; top:200px;}
-    100% {background-color:red; left:0px; top:0px;}
-}
-
-.image{
-    transform:translateY(20%);
-    border-radius: 50px;
-    border: 1px solid gray;
-    width: 31%;
-    height: 84%;
-
-}
-
-body {
-    position: relative;
-    -webkit-animation-name: back_effect; /* Chrome, Safari, Opera */
-    -webkit-animation-duration: 4s; /* Chrome, Safari, Opera */
-    animation-name: back_effect;
-    animation-duration: 4s;
-    -webkit-animation: mymove 5s infinite; /* Chrome, Safari, Opera */
-    animation: mymove 5s infinite;
-
-
-    /*background: url("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQujz_amhhSeJMy9_rFaa7asbhqmOnsfVRU8FLGB2E1sFO9bYG5Bg");*/
-    /*background-repeat: repeat;*/
-    /*background-size: cover;*/
-}
-@-webkit-keyframes  back_effect{
-    0%   {background-color:rgba(255,0,0,0.2);}
-    25%  {background-color:rgba(0,255.0.0.2);}
-    50%  {background-color:rgba(0,0,255,0.2); }
-    75%  {background-color:rgba(0,255.0.0.2); }
-    100% {background-color:rgba(255,0,0,0.2); }
-}
-
-/*.navbar{*/
-    /*background-color: #6A6969;*/
-    /*text-align: center;*/
-
-/*}*/
 .header{
-    margin: 0;
+    margin: 0 auto;
     width: 100%;
-    height: 20vh;
-    border: 1px solid black;
-    /*background-image: url("images/music_bg.gif");*/
-    background-repeat:no-repeat ;
+    height: 40vh;
+    background-image: url("");
+    border: 10px solid black;
+   // background-repeat:repeat ;
 }
 .first_part{
     margin: 0 auto;
     width: 80%;
     height: auto;
-    border: 1px solid black;
+    background-image: url("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcScVtAyceRnWZ92jVdNo94jNMRHKCaZ3ckFK9BxU5Vq4VC7Jzd1");
+    opacity: 0.7;
 }
+/*.size{*/
+    /*width: 50%;*/
+    /*height: 350px;*/
+    /*margin:0 auto;*/
+/*}*/
 .row{
     width:80%;
     height: 20%;
-    border: 1px solid black;
+    border: 5px solid black;
+    border-radius: 10px;
     margin: 1% auto;
+    background-color:#C9A89D;
+    opacity: 0.9;
+}
+.row:hover{
+    animation: image_display;
+    animation-duration: 3s;
+    /*background-color: lightgray;*/
+}
+@-webkit-keyframes image_display {
+    0%   {background-color: gainsboro; left:0px; top:0px;}
+    25%  {background-color:#C9A89D; left:200px; top:0px;}
+    50%  {background-color:lightgray; left:200px; top:200px;}
+    75%  {background-color:gainsboro; left:0px; top:200px;}
+    100% {background-color:#C9A89D; left:0px; top:0px;}
 }
 .first_img,.third_img,.fifth_img{
     width: 30%;
     height: 100%;
     border: 1px solid black;
+    border-radius: 100%;
     float: left;
 }
 .song1_link,.song3_link,.song5_link{
-    width: 50%;
     float: right;
     transform: translate(-10%,200%);
-    background-color: gainsboro;
+    text-align: center;
 }
 .second_img,.fourth_img{
     width: 30%;
     height: 100%;
     border: 1px solid black;
+    border-radius: 100%;
     float:right;
 }
 .song2_link,.song4_link{
-    width: 50%;
     float: left;
     transform: translate(10%,200%);
-    background-color: gainsboro;
+    text-align: center;
+}
+.cover:hover{
+    opacity: 0.5;
+    border: 10px solid black;
+
+}
+ul>li{
+    list-style-type: square;
+}
+
+li > a{
+    color:black;
+    text-shadow: 4px 4px 2px gray;
+    font-size: 3em;
+    font-family:"Brush Script MT";
+    //background: linear-gradient(lightgray,grey);
+}
+li>a:hover{
+    font-size:3.3em ;
 }
 .first_part{
     margin: 0 auto;
@@ -150,7 +117,7 @@ body {
     width: 26vh;
     height: 26vh;
     background-color: blue;
-    border: 1px solid black;
+    border: 2px solid black;
 }
 .imgdiv img{
     position:relative;
