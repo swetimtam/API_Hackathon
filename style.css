@@ -25,8 +25,9 @@
     border: 5px solid black;
     border-radius: 10px;
     margin: 1% auto;
-    background-color:#C9A89D;
-    opacity: 0.9;
+    background-color: #C9A89D;
+    opacity: .9;
+    cursor: pointer;
 }
 .row:hover{
     animation: image_display;
@@ -73,7 +74,7 @@ ul>li{
     list-style-type: square;
 }
 
-li > a{
+li > a, .box-text{
     color:black;
     text-shadow: 4px 4px 2px gray;
     font-size: 3em;
@@ -82,4 +83,7 @@ li > a{
 }
 li>a:hover{
     font-size:3.3em ;
+}
+.odd {
+
 }
