@@ -36,8 +36,8 @@ function getVines(name,song) {
 
 $(document).ready(function () {
 
-        $("body").addClass('animate');
-        console.log('testing');
+    $("body").addClass('animate');
+    console.log('testing');
 
     $.ajax({
         dataType: 'json',
