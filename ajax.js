@@ -21,7 +21,7 @@ function getVines(name, song) {
             for (var k in test) {
                 if (test.hasOwnProperty(k)) {
                     // appending magic happens here
-                    $('body').append(test[k].html);
+                    $('.first_part').append(test[k].html);
                 }
             }
         },

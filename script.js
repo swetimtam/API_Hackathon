@@ -15,8 +15,7 @@ function noDupVines(arr) {
 
 //function for when songs get clicked to hide songs, and show vines
 function song_click() {
-    $('.first_part').hide();
-    $('#images_side').show();
+    $('.row').hide();
 }
 
 //function for song on click to populate flickr photos
@@ -41,7 +40,7 @@ function append_songs(song) {
     $('.first_part').append(songDiv);
     $(songDiv).append(songArt).append(songInfo);
     $(songDiv).on('click', function () {
-        //console.log(song.name + song.song);
+        song_click();
         getVines(song.name, song.song);
     })
 }
