@@ -55,7 +55,7 @@ function append_songs(){
         var song = $('<p>',{
             text:song_array[i].text
         });
-        $('.singleTweet').eq([i]).append(song);
+        $('.first_part').eq([i]).append(song);
     }
 
 };
