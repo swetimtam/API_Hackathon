@@ -1,70 +1,71 @@
-
-.header{
+#main_body{/*main page style*/
+    z-index: 1000;
+    background: #222222;
+}
+.header{/* header have liner color effect and some style*/
     margin: 0 auto;
     width: 100%;
-    height: 40vh;
+    height: 20vh;
+    text-align: center;
+    font-family:"Brush Script MT";
     background-image: url("");
+    background:linear-gradient(#8C6F66,#5C5350);
     border: 10px solid black;
-   // background-repeat:repeat ;
 }
-.first_part{
+.first_part{/*this first part is showing iTunes photos and album name, This is down the header*/
     margin: 0 auto;
     width: 80%;
     height: auto;
     background-image: url("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcScVtAyceRnWZ92jVdNo94jNMRHKCaZ3ckFK9BxU5Vq4VC7Jzd1");
     opacity: 0.7;
+
 }
-/*.size{*/
-    /*width: 50%;*/
-    /*height: 350px;*/
-    /*margin:0 auto;*/
-/*}*/
-.row{
+.row{/*first part have rows with pitcher and album name in ul*/
     width:80%;
     height: 20%;
     border: 5px solid black;
     border-radius: 10px;
     margin: 1% auto;
-    background-color:#C9A89D;
-    opacity: 0.9;
+    background-color: #C9A89D;
+    opacity: .9;
+    cursor: pointer;
 }
-.row:hover{
+.row:hover{/*row hover effect and it's infinite animation*/
     animation: image_display;
-    animation-duration: 3s;
-    /*background-color: lightgray;*/
+    animation-duration: 2s;
+    animation-iteration-count: infinite;    /*background-color: lightgray;*/
 }
-@-webkit-keyframes image_display {
+@-webkit-keyframes image_display {/*row hover have this animation effect*/
     0%   {background-color: gainsboro; left:0px; top:0px;}
     25%  {background-color:#C9A89D; left:200px; top:0px;}
     50%  {background-color:lightgray; left:200px; top:200px;}
     75%  {background-color:gainsboro; left:0px; top:200px;}
     100% {background-color:#C9A89D; left:0px; top:0px;}
 }
-.first_img,.third_img,.fifth_img{
+.first_part > .row > .cover{/*first part rows cover have these styling*/
     width: 30%;
     height: 100%;
     border: 1px solid black;
     border-radius: 100%;
+}
+.first_part > .row:nth-child(odd) > .cover, .evenImg{/*first part odd rows style*/
     float: left;
 }
-.song1_link,.song3_link,.song5_link{
-    float: right;
-    transform: translate(-10%,200%);
-    text-align: center;
-}
-.second_img,.fourth_img{
-    width: 30%;
-    height: 100%;
-    border: 1px solid black;
-    border-radius: 100%;
+.first_part > .row:nth-child(even) > .cover, .oddImg{/*first part even rows style*/
     float:right;
 }
-.song2_link,.song4_link{
-    float: left;
-    transform: translate(10%,200%);
+.first_part > .row > ul {/*first part row un order list style*/
     text-align: center;
 }
-.cover:hover{
+.first_part > .row:nth-child(odd) > ul, .evenList{/*first part row un order for odd list style*/
+    float: right;
+    transform: translate(-10%,200%);
+}
+.first_part > .row:nth-child(even) > ul, .oddList {/*first part row un order for even list style*/
+    float: left;
+    transform: translate(10%,200%);
+}
+.cover:hover{/*album image hover effect*/
     opacity: 0.5;
     border: 10px solid black;
 
@@ -73,13 +74,32 @@ ul>li{
     list-style-type: square;
 }
 
-li > a{
+li > a, .boxText{
     color:black;
     text-shadow: 4px 4px 2px gray;
     font-size: 3em;
     font-family:"Brush Script MT";
     //background: linear-gradient(lightgray,grey);
 }
-li>a:hover{
+li>a:hover{/*album name list hover effect*/
     font-size:3.3em ;
 }
+
+#main_body::before,#main_body::after{/*page load animation still in progress*/
+    content: '';
+    z-index: 1000;
+    background: #222222;
+    position: absolute;
+    transition-duration: 4s;
+    transform: translateX(0%);
+}
+#main_body::before{
+    right: 0;
+}
+.animate::before{
+    transform: translateX(100%)!important;
+}
+.animate::after{
+    transform: translateX(-100%)!important;
+}
+

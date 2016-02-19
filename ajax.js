@@ -51,36 +51,13 @@ $(document).ready(function () {
                 artist.albumArt = (ajaxObj['im:image'][2].label);
                 artist.genre = (ajaxObj.category.attributes.label);
                 artist.release = (ajaxObj['im:releaseDate'].attributes.label);
-               top10Music.push(artist);
+                top10Music.push(artist);
+                append_songs(top10Music[i], i);
             }
-
-            //console.log(top10SongsInfo);
-            append_top10_list();
+        },
+        error: function (response) {
+            console.log("error message");
         }
     });
-
-
 });
 
-//    $.ajax({
-//        dataType:'json',
-//        url:'http://s-apis.learningfuze.com/hackathon/vine/index.php',
-//        data: data,
-//        cache: false,
-//        success: function(response){
-//            console.log("success", response);
-//            output = response;
-//            var test = cleanVines(output.vines);
-//            console.log("This is the clean list: ", test);
-//
-//            for(var k in test){
-//                if(test.hasOwnProperty(k)){
-//                    $('#images_side').append(test[k].html);
-//                }
-//            }
-//        },
-//        error: function(response){
-//            console.log("error message");
-//        }
-//
-//});
