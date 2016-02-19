@@ -117,15 +117,8 @@ li>a:hover{/*album name list hover effect*/
     position: absolute;
     width: 26vh;
     height: 26vh;
-    background-color: blue;
-    border: 2px solid black;
-    background:url("./images/adele.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-.imgdiv img{
-    position:relative;
-    margin: 15px;
+    background-color: transparent;
+    border: 3px solid black;
 
 }
 .back {

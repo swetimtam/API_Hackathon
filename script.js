@@ -22,27 +22,13 @@ function song_click() {
 
 //function for song on click to populate flickr photos
 //@parameters: first noun after the hyphen to be sent to flickr for image lookup
+//
+//function append_top10_list(){
+//    for(var i = 0; i<top10Music.length; i++){
+//        append_songs(top10Music[i]);
+//    }
+//}
 
-function append_top10_list(){
-    for(var i = 0; i<top10Music.length; i++){
-        append_songs(top10Music[i]);
-        testAdele();
-    }
-}
-function testAdele (){
-    for(var i=0;i<6;i++){
-        var adelepic = $('<img>',{
-            url:'./image/adele.jpg'
-        });
-        var cubeFace = $('<div>',{
-            class:'imgdiv, cubediv'+i
-        });
-        $('.cubediv').eq(i).append(cubeFace);
-        var cube = $(".cubediv"+i);
-        $(cube).append(adelepic);
-    }
-
-}
 //function append_top10_list(){
 //    for(var i=0;i<top10.length;i++){
 //        //append_songs(top10[i]);
@@ -68,30 +54,20 @@ function testAdele (){
 
         //use for cube
 
-//function append_songs(song){
-//    //var songdiv = $('<div>');
-//    //var songdivArray=[];
-//    var songart = $('<img>',{
-//        src:song.albumArt
-//    });
-//    var songinfo= $('<p>',{
-//        text:song.name + ' - ' + song.song
-//    });
-//    for( var i=0; i<1; i++) {
-//        var songdiv = $('<div>',{
-//            class:'cubediv'+i
-//        });
-//        $('.cubediv').eq(i).append(songdiv);
-//
-//        var cube = $(".cubediv"+i);
-//        $(cube).append(songart).append(songinfo);
-//    }
-//    $(songdiv).on('click',function(){
-//        //console.log(song.name + song.song);
-//        getVines(song.name,song.song);
-//    });
-//
-//}
+function cubePhoto(){
+    for(var i = 0; i<top10Music.length; i++){
+    var songart = $('<img>',{
+        src:song.albumArt
+    });
+    var songdiv = $('<div>',{
+        class:'cubediv'+i
+    });
+    $('.cubediv').eq(i).append(songdiv);
+
+    var cube = $(".cubediv"+i);
+    $(cube).append(songart);
+    }
+}
 
 
 
