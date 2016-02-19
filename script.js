@@ -19,6 +19,7 @@ function song_click() {
     $('#images_side').show();
 }
 
+
 //function for song on click to populate flickr photos
 //@parameters: first noun after the hyphen to be sent to flickr for image lookup
 
@@ -93,25 +94,45 @@ function testAdele (){
 //}
 
 
-function append_songs(song) {
-    var songDiv = $('<div>');
-    var songArt = $('<img>', {
-        src: song.albumArt
-    });
-    var songInfo = $('<p>', {
-        text: song.name + ' - ' + song.song
-    });
 
+// /function to place song properly
+function append_songs(song, i) {
+    if (i % 2 == 0) {
+        var songDiv = $('<div>', {
+            class: 'row'
+        });
+        var songArt = $('<img>', {
+            class: 'evenImg cover',
+            src: song.albumArt,
+        });
+        var songInfo = $('<p>', {
+            class: 'evenList boxText',
+            text: song.name + ' - ' + song.song
+        });
+    }
+    else {
+        var songDiv = $('<div>', {
+            class: 'row'
+        });
+        var songArt = $('<img>', {
+            class: 'oddImg cover',
+            src: song.albumArt,
+        });
+        var songInfo = $('<p>', {
+            class: 'oddList boxText',
+            text: song.name + ' - ' + song.song
+        });
+    }
 
     $('.first_part').append(songDiv);
     $(songDiv).append(songArt).append(songInfo);
     $(songDiv).on('click', function () {
         //console.log(song.name + song.song);
+        $('div:not(body)').hide();
         getVines(song.name, song.song);
     })
 }
-
-
+$("#main_body").addClass('animate');
 
 
 
