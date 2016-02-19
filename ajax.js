@@ -18,6 +18,7 @@ $(document).ready(function () {
                 artist.name = (response.feed.entry[i]['im:artist'].label);
                 artist.song = (response.feed.entry[i]['im:name'].label);
                 artist.albumArt = (response.feed.entry[i]['im:image'][2].label);
+                artist.genre = (response.feed.entry[i].category.attribute.label);
                 top10.push(artist);
             }
             console.log(top10);
