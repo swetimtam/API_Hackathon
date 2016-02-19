@@ -45,7 +45,7 @@ function fetch_songs(){
 
 //function to add tweets to the tweet array
 function add_songs_to_array(){
-    var array_index=tweets_array.length;
+    var array_index=song_array.length;
     var tweets={
         text:'',
         image_search_word:'',
@@ -92,9 +92,9 @@ function clear_photo_array(){
 
 //function to place images properly
 function append_vine(){
-    for(var i=0;i<photo_array.length;i++){
+    for(var i=0;i<vine_array.length;i++){
         var image = $('<img>',{
-            src:photo_array[i].url
+            src:vine_array[i].url
         });
         var testimg = image.addClass('img-responsive');
         $('.image').eq([i]).append(testimg);
