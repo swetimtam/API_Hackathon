@@ -43,7 +43,7 @@ $(document).ready(function () {
 
             for(var k in test){
                 if(test.hasOwnProperty(k)){
-                    $('body').append(test[k].html);
+                    $('.image').eq([k]).append(test[k].html);
                 }
             }
         },
