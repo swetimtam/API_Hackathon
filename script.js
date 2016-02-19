@@ -54,20 +54,27 @@ function add_songs_to_array(){
 //function for song on click to populate flickr photos
 //@parameters: first noun after the hyphen to be sent to flickr for image lookup
 
-//function to place song properly
-function append_songs(){
+function append_top10_list(){
     for(var i=0;i<top10.length;i++){
+        append_songs(top10[i]);
+    }
+}
+
+// /function to place song properly
+function append_songs(song){
         var songdiv = $('<div>');
         var songart = $('<img>',{
-            src:top10[i].albumArt,
+            src:song.albumArt,
         });
         var songinfo= $('<p>',{
-           text:top10[i].name + ' - ' + top10[i].song
+           text:song.name + ' - ' + song.song
         });
 
         $('.first_part').append(songdiv);
         $(songdiv).append(songart).append(songinfo);
-    }
+        $(songdiv).on('click',function(){
+            console.log(song.name + song.song);
+        })
 
 }
 
