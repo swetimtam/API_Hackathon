@@ -44,7 +44,7 @@ $(document).ready(function () {
 
             for(var k in test){
                 if(test.hasOwnProperty(k)){
-                    $('.image').eq([k]).append(test[k].html);
+                    $('#images_side').append(test[k].html);
                 }
             }
         },
