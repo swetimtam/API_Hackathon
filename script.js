@@ -1,7 +1,6 @@
 
 var tweets_array = []; //array to keep the tweets
 var output;
-//var x;
 
 //function on load to pre-populate songs
 $(document).ready(function(){
@@ -9,38 +8,6 @@ $(document).ready(function(){
     $('#mainBody').click(function(){
         song_click();
     });
-
-    var data = {
-        search_term:'Flo Rida',
-        count: 50
-    };
-
-
-    $.ajax({
-        dataType:'json',
-        url:'http://s-apis.learningfuze.com/hackathon/vine/index.php',
-        data: data,
-        mathod: 'GET',
-        cache: false,
-        success: function(response){
-            console.log("success", response);
-            output = response;
-            var test = cleanVines(output.vines);
-            console.log("This is the clean list: ", test);
-
-            for(var k in test){
-                if(test.hasOwnProperty(k)){
-                    $('body').append(test[k].html);
-                }
-            }
-        },
-        error: function(response){
-            console.log("error message");
-        }
-
-    });
-
-
 });
 
 function cleanVines (arr){
