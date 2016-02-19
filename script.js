@@ -1,6 +1,6 @@
 
 var tweets_array = []; //array to keep the tweets
-var output;
+//var output;
 
 //function on load to pre-populate songs
 $(document).ready(function(){
@@ -56,8 +56,8 @@ function add_songs_to_array(){
 //@parameters: first noun after the hyphen to be sent to flickr for image lookup
 
 function append_top10_list(){
-    for(var i=0;i<top10.length;i++){
-        append_songs(top10[i]);
+    for(var i=0;i<top10SongsInfo.length;i++){
+        append_songs(top10SongsInfo[i]);
     }
 }
 
