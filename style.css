@@ -1,5 +1,6 @@
 #main_body{/*main page style*/
-    z-index: 1000;
+    height: 100%;
+    z-index:1 ;
     background: #222222;
 }
 .header{/* header have liner color effect and some style*/
@@ -54,15 +55,14 @@
 .first_part > .row:nth-child(even) > .cover, .oddImg{/*first part even rows style*/
     float:right;
 }
-.first_part > .row > ul {/*first part row un order list style*/
+
+
+.first_part > .row:nth-child(odd) > ul, .evenList{/*first part row un order for odd list style created dynamic class*/
     text-align: center;
-}
-.first_part > .row:nth-child(odd) > ul, .evenList{/*first part row un order for odd list style*/
-    float: right;
     transform: translate(-10%,200%);
 }
-.first_part > .row:nth-child(even) > ul, .oddList {/*first part row un order for even list style*/
-    float: left;
+.first_part > .row:nth-child(even) > ul, .oddList {/*first part row un order for even list style dynamic class*/
+    text-align: center;
     transform: translate(10%,200%);
 }
 .cover:hover{/*album image hover effect*/
@@ -79,17 +79,39 @@ li > a, .boxText{
     text-shadow: 4px 4px 2px gray;
     font-size: 3em;
     font-family:"Brush Script MT";
-    //background: linear-gradient(lightgray,grey);
+//background: linear-gradient(lightgray,grey);
 }
 li>a:hover{/*album name list hover effect*/
     font-size:3.3em ;
 }
-.first_part{
-    margin: 0 auto;
-    width: 80%;
-    height: 80vh;
-    border: 1px solid black;
+
+
+body::before,body::after{/*page load animation still in progress*/
+    content: '';
+    background: #222222;
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    transition-duration: 4s;
+    transform: translateX(0%);
+    top: 0px;
+    animation-delay: 3s;
+    z-index: 1000;
 }
+body::before{
+    right: 0px;
+}
+body::after{
+    left: 0px;
+}
+.animate::before{
+    transform: translateX(100%)!important;
+}
+.animate::after{
+    transform: translateX(-100%)!important;
+}
+
+
 .wrap {
     perspective: 253vw;
     perspective-origin: 152% -72vw;
@@ -142,23 +164,5 @@ li>a:hover{/*album name list hover effect*/
 }
 .front {
     transform: translateZ(100px);
-}
-
-#main_body::before,#main_body::after{/*page load animation still in progress*/
-    content: '';
-    z-index: 1000;
-    background: #222222;
-    position: absolute;
-    transition-duration: 4s;
-    transform: translateX(0%);
-}
-#main_body::before{
-    right: 0;
-}
-.animate::before{
-    transform: translateX(100%)!important;
-}
-.animate::after{
-    transform: translateX(-100%)!important;
 }
 

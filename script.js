@@ -19,58 +19,6 @@ function song_click() {
     $('#images_side').show();
 }
 
-
-//function for song on click to populate flickr photos
-//@parameters: first noun after the hyphen to be sent to flickr for image lookup
-//
-//function append_top10_list(){
-//    for(var i = 0; i<top10Music.length; i++){
-//        append_songs(top10Music[i]);
-//    }
-//}
-
-//function append_top10_list(){
-//    for(var i=0;i<top10.length;i++){
-//        //append_songs(top10[i]);
-//        var songart = $('<img>',{
-//            src:top10[i].albumArt
-//        });
-//        var songinfo= $('<p>',{
-//            text:top10[i].name + ' - ' + top10[i].song
-//        });
-//
-//        var songdiv = $('<div>',{
-//            class:'imgdiv cubediv'+i
-//        });
-//        $('.cubediv').eq(i).append(songdiv);
-//
-//        var cube = $(".cubediv"+i);
-//        $(cube).append(songart).append(songinfo);
-
-
-
-
-// /function to place song properly
-
-        //use for cube
-
-function cubePhoto(){
-    for(var i = 0; i<top10Music.length; i++){
-    var songart = $('<img>',{
-        src:song.albumArt
-    });
-    var songdiv = $('<div>',{
-        class:'cubediv'+i
-    });
-    $('.cubediv').eq(i).append(songdiv);
-
-    var cube = $(".cubediv"+i);
-    $(cube).append(songart);
-    }
-}
-
-
-
 // /function to place song properly
 function append_songs(song, i) {
     if (i % 2 == 0) {
@@ -99,7 +47,6 @@ function append_songs(song, i) {
             text: song.name + ' - ' + song.song
         });
     }
-
     $('.first_part').append(songDiv);
     $(songDiv).append(songArt).append(songInfo);
     $(songDiv).on('click', function () {
@@ -108,7 +55,24 @@ function append_songs(song, i) {
         getVines(song.name, song.song);
     })
 }
-$("#main_body").addClass('animate');
+$("#main_body").click(function(){
+    $("#main_body").addClass('animate');
+});
 
 
 
+
+function cubePhoto(){
+    for(var i = 0; i<top10Music.length; i++){
+        var songart = $('<img>',{
+            src:song.albumArt
+        });
+        var songdiv = $('<div>',{
+            class:'cubediv'+i
+        });
+        $('.cubediv').eq(i).append(songdiv);
+
+        var cube = $(".cubediv"+i);
+        $(cube).append(songart);
+    }
+}
