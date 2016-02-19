@@ -5,7 +5,7 @@ var output;
 //function on load to pre-populate songs
 $(document).ready(function(){
     $('#mainBody').click(function(){
-        //song_click();
+        song_click();
     });
 });
 
@@ -25,7 +25,7 @@ function cleanVines (arr){
 function song_click(){
     $('.first_part').hide();
     $('#images_side').show();
-    append_vine();
+    //append_vine();
 }
 
 //function to clear songs
@@ -99,20 +99,20 @@ function add_vine_to_array(){
 $('#images_side').empty();
 
 //function to clear photo array
-function clear_photo_array(){
-    vine_array = [];
-}
+//function clear_photo_array(){
+//    vine_array = [];
+//}
 
 //function to place images properly
-function append_vine(){
-    for(var i=0;i<vine_array.length;i++){
-        var image = $('<img>',{
-            src:vine_array[i].url
-        });
-        var testimg = image.addClass('img-responsive');
-        $('.image').eq([i]).append(testimg);
-    }
-}
+//function append_vine(){
+//    for(var i=0;i<vine_array.length;i++){
+//        var image = $('<img>',{
+//            src:vine_array[i].url
+//        });
+//        var testimg = image.addClass('img-responsive');
+//        $('.image').eq([i]).append(testimg);
+//    }
+//}
 
 
 
