@@ -46,12 +46,7 @@ function append_songs(song) {
         getVines(song.name, song.song);
     })
 }
-function loading_page_animation(){
-    $(".header").show(5000);
-    $(".first_part").show(5000);
-
-}
-
+$("#main_body").addClass('animate');
 
 
 

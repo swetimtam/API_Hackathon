@@ -32,7 +32,6 @@ function getVines(name, song) {
 }
 
 $(document).ready(function () {
-    loading_page_animation();
     $.ajax({
         dataType: 'json',
         cache: false,
