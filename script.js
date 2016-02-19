@@ -23,10 +23,6 @@ function cleanVines (arr){
     return output;
 }
 
-var song_array = [{text:'cats are great',image_search_word:'cats',array_index:0},{text:'dogs are great',image_search_word:'dogs',array_index:1},{text:'monkeys are great',image_search_word:'monkeys',array_index:2},{text:'wombats are great',image_search_word:'wombats',array_index:3},{text:'horses are great',image_search_word:'horses',array_index:4}]; //array to keep the tweets
-var vine_array = [{url:'https://pbs.twimg.com/profile_images/447374371917922304/P4BzupWu.jpeg'},{url:'http://cdn.earthporm.com/wp-content/uploads/2014/07/cute-bunnies-tongues-6.jpg'},{url:'https://i.ytimg.com/vi/2hh9lWK-iwc/maxresdefault.jpg'},{url:'http://cdn.earthporm.com/wp-content/uploads/2014/07/cute-bunnies-tongues-1.jpg'},{url:'http://www.fuzzfeed.com/wp-content/uploads/2015/10/cute-baby-bunny-wallpaper-hq-mjhek.jpg'}]; //array to keep photos
-var non_search_words=['a','an','the','them','if','about','above','across','after','against','along','among','apart','around','as','at','because','before','behind','be','below','beneath','beside','between','beyond','but','by','down','during','except','for','from','in','inside','into','like','near','next','of','off','on','onto','out','outside','over','past','regarding','round','since','through','throughout','till','to','toward','under','underneath','unlike','until','up','upon','with','within','without'];
-
 //function for when tweets get clicked to hide tweets, and show images
 function song_click(){
     $('.first_part').hide();
