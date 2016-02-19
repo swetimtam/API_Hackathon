@@ -43,7 +43,7 @@ function append_songs(song, i) {
             class: 'oddImg cover',
             src: song.albumArt,
         });
-        var songInfo = $('<p>', {
+        var songInfo = $('<span>', {
             class: 'oddList boxText',
             text: song.name + ' - ' + song.song
         });
