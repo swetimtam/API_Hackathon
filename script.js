@@ -29,13 +29,6 @@ function song_click(){
     append_vine();
 }
 
-
-
-//function when the button is clicked
-$('button').click(function(){
-    //clear_tweets_array();
-    //clear_tweets();
-});
 //function to clear tweets
 function clear_songs(){
     $('#tweets p').empty();
@@ -45,13 +38,14 @@ function clear_tweets_array(){
 };
 //function to fetch songs and populate the tweets_array
 //globals used: tweets_array
+
 function fetch_songs(){
     add_songs_to_array();
-}
+};
 
 //function to add tweets to the tweet array
 function add_songs_to_array(){
-    var array_index=tweets_array.length;
+    var array_index=song_array.length;
     var tweets={
         text:'',
         image_search_word:'',
@@ -98,9 +92,9 @@ function clear_photo_array(){
 
 //function to place images properly
 function append_vine(){
-    for(var i=0;i<photo_array.length;i++){
+    for(var i=0;i<vine_array.length;i++){
         var image = $('<img>',{
-            src:photo_array[i].url
+            src:vine_array[i].url
         });
         var testimg = image.addClass('img-responsive');
         $('.image').eq([i]).append(testimg);
