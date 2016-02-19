@@ -58,11 +58,11 @@
     text-align: center;
 }
 .first_part > .row:nth-child(odd) > ul {/*first part row un order for odd list style*/
-    float: right;
+   // float: right;
     transform: translate(-10%,200%);
 }
 .first_part > .row:nth-child(even) > ul {/*first part row un order for even list style*/
-    float: left;
+    //float: left;
     transform: translate(10%,200%);
 }
 .cover:hover{/*album image hover effect*/
