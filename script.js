@@ -8,8 +8,18 @@ var non_search_words=['a','an','the','them','if','about','above','across','after
 //function on load to pre-populate tweets
 $(document).ready(function(){
     fetch_tweets();
-
     append_tweets();
+
+    $('#tweets p').click(function(){
+        tweet_click();
+    });
+
+    //function when the button is clicked
+    $('button').click(function(){
+        //clear_tweets_array();
+        clear_tweets();
+        append_tweets();
+    });
 });
 
 //function for when tweets get clicked to hide tweets, and show images
@@ -28,7 +38,7 @@ $('button').click(function(){
 });
 //function to clear tweets
 function clear_tweets(){
-    $('#tweets').empty();
+    $('#tweets p').empty();
 };
 function clear_tweets_array(){
   tweets_array = [];
@@ -108,9 +118,10 @@ function clear_photo_array(){
 function append_images(){
     for(var i=0;i<photo_array.length;i++){
         var image = $('<img>',{
-            class:'img_sr'
+            src:photo_array[i].url
         });
-        $('#images_side').append(image);
+        var testimg = image.addClass('img-responsive');
+        $('.image').eq([i]).append(testimg);
     }
 }
 
