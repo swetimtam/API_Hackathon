@@ -5,7 +5,7 @@
 function getVines(name, song) {
     var data = {
         search_term: name + " " + song
-    }
+    };
 
     $.ajax({
         dataType: 'json',
@@ -54,12 +54,8 @@ $(document).ready(function () {
         error: function (response) {
             console.log("error message");
         }
-<<<<<<< HEAD
+
     });
 });
 
 
-=======
-    })
-});
->>>>>>> ddb1904d3b9270036d709e249b1673922bae759c

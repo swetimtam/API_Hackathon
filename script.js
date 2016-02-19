@@ -25,9 +25,23 @@ function song_click() {
 function append_top10_list(){
     for(var i = 0; i<top10Music.length; i++){
         append_songs(top10Music[i]);
+        testAdele();
     }
 }
+function testAdele (){
+    for(var i=0;i<6;i++){
+        var adelepic = $('<img>',{
+            url:'./image/adele.jpg'
+        });
+        var cubeFace = $('<div>',{
+            class:'imgdiv, cubediv'+i
+        });
+        $('.cubediv').eq(i).append(cubeFace);
+        var cube = $(".cubediv"+i);
+        $(cube).append(adelepic);
+    }
 
+}
 //function append_top10_list(){
 //    for(var i=0;i<top10.length;i++){
 //        //append_songs(top10[i]);
@@ -82,7 +96,7 @@ function append_top10_list(){
 function append_songs(song) {
     var songDiv = $('<div>');
     var songArt = $('<img>', {
-        src: song.albumArt,
+        src: song.albumArt
     });
     var songInfo = $('<p>', {
         text: song.name + ' - ' + song.song
@@ -95,7 +109,7 @@ function append_songs(song) {
         //console.log(song.name + song.song);
         getVines(song.name, song.song);
     })
-};
+}
 
 
 

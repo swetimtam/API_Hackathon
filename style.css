@@ -118,6 +118,9 @@ li>a:hover{
     height: 26vh;
     background-color: blue;
     border: 2px solid black;
+    background:url("./images/adele.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .imgdiv img{
     position:relative;
