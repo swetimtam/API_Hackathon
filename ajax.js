@@ -3,7 +3,31 @@
  */
 var global_result;
 var top10 = [];
+var data = {};
+function getVines() {
+    $.ajax({
+        dataType: 'json',
+        url: 'http://s-apis.learningfuze.com/hackathon/vine/index.php',
+        data: data,
+        cache: false,
+        success: function (response) {
+            console.log("success", response);
+            output = response;
+            var test = cleanVines(output.vines);
+            console.log("This is the clean list: ", test);
 
+            for (var k in test) {
+                if (test.hasOwnProperty(k)) {
+                    $('body').append(test[k].html);
+                }
+            }
+        },
+        error: function (response) {
+            console.log("error message");
+        }
+
+    })
+}
 $(document).ready(function () {
     $.ajax({
         dataType: 'json',
@@ -18,38 +42,16 @@ $(document).ready(function () {
                 artist.name = (response.feed.entry[i]['im:artist'].label);
                 artist.song = (response.feed.entry[i]['im:name'].label);
                 artist.albumArt = (response.feed.entry[i]['im:image'][2].label);
-                //artist.genre = (response.feed.entry[i].category.attribute.label);
+                artist.genre = (response.feed.entry[i].category.attributes.label);
                 top10.push(artist);
             }
+            data = {
+                search_term: top10[4].name + " " + top10[4].song,
+                count: 50
+            };
             console.log(top10);
         }
-    });
-    var data = {
-        search_term:'Flo Rida',
-        count: 50
-    };
+    })
 
 
-    $.ajax({
-        dataType:'json',
-        url:'http://s-apis.learningfuze.com/hackathon/vine/index.php',
-        data: data,
-        cache: false,
-        success: function(response){
-            console.log("success", response);
-            output = response;
-            var test = cleanVines(output.vines);
-            console.log("This is the clean list: ", test);
-
-            for(var k in test){
-                if(test.hasOwnProperty(k)){
-                    $('body').append(test[k].html);
-                }
-            }
-        },
-        error: function(response){
-            console.log("error message");
-        }
-
-    });
 });
