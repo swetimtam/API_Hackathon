@@ -21,18 +21,33 @@ function song_click() {
 }
 
 // /function to place song properly
-function append_songs(song) {
-    var songDiv = $('<div>', {
-        class: 'row'
-    });
-    var songArt = $('<img>', {
-        class: 'first_img',
-        src: song.albumArt,
-    });
-    var songInfo = $('<p>', {
-        class: 'box-text',
-        text: song.name + ' - ' + song.song
-    });
+function append_songs(song, i) {
+    if (i % 2 == 0) {
+        var songDiv = $('<div>', {
+            class: 'row'
+        });
+        var songArt = $('<img>', {
+            class: 'evenImg cover',
+            src: song.albumArt,
+        });
+        var songInfo = $('<p>', {
+            class: 'evenList boxText',
+            text: song.name + ' - ' + song.song
+        });
+    }
+    else {
+        var songDiv = $('<div>', {
+            class: 'row'
+        });
+        var songArt = $('<img>', {
+            class: 'oddImg cover',
+            src: song.albumArt,
+        });
+        var songInfo = $('<p>', {
+            class: 'oddList boxText',
+            text: song.name + ' - ' + song.song
+        });
+    }
     $('.first_part').append(songDiv);
     $(songDiv).append(songArt).append(songInfo);
     $(songDiv).on('click', function () {

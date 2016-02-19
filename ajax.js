@@ -47,7 +47,7 @@ $(document).ready(function () {
                 artist.albumArt = (response.feed.entry[i]['im:image'][2].label);
                 artist.genre = (response.feed.entry[i].category.attributes.label);
                 top10Music.push(artist);
-                append_songs(top10Music[i]);
+                append_songs(top10Music[i], i);
             }
             console.log(top10Music);
             //append_top10_list();
