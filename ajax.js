@@ -6,6 +6,7 @@ function getVines(name, song) {
     var data = {
         search_term: name + " " + song
     }
+
     $.ajax({
         dataType: 'json',
         url: 'http://s-apis.learningfuze.com/hackathon/vine/index.php',
@@ -29,6 +30,7 @@ function getVines(name, song) {
         }
     })
 }
+
 $(document).ready(function () {
     $.ajax({
         dataType: 'json',
