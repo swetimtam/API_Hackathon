@@ -35,46 +35,34 @@
 
 .image{
     transform:translateY(20%);
-    width: 50%;
+    width: 25%;
     height: 70%;
     border-radius: 50px;
     border: 1px solid gray;
 
 }
 
-/*******************************************************************
-GENERAL
-*******************************************************************/
 body {
     background: url("http://fmuweb.com/omar/94_ffiti-urban-hip-hop-wallpaper_WallsHQ_com_.jpg");
     background-size: cover;
 }
 
-/********************************
-Nav Bar
-*********************************/
 .navbar {
     background-color:transparent;
     color: white;
 }
 
 
-/********************************
-Button
-*********************************/
+
 .btn {
     margin:auto;
 }
-/********************************
-Main Content
-*********************************/
+
 #mainBody {
     box-sizing: border-box;
     margin-top: 6%;
 }
-/********************************
-Tweet Div
-*********************************/
+
 #tweets {
     height: 90vh;
 }
