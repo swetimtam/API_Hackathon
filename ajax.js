@@ -61,7 +61,7 @@ $(document).ready(function () {
                 artist.song = (ajaxObj['im:name'].label);
                 artist.albumArt = (ajaxObj['im:image'][2].label);
                 artist.genre = (ajaxObj.category.attributes.label);
-                artist.release = (ajaxObj['im:releaseDate'].attributes.label);
+                artist.released = (ajaxObj['im:releaseDate'].attributes.label);
                 top10Music.push(artist);
                 append_songs(top10Music[i], i);
             }

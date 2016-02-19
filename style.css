@@ -178,3 +178,31 @@ body::after{
 }
 
 
+.infoSpan{
+    font-size:14px;
+    display:none;
+    background:white;
+    height:55px;
+    position:relative;
+    text-align:center;
+    text-transform:uppercase;
+    padding:0 10px;
+}
+
+.infoSpan:after{
+    content:'';
+    position:absolute;
+    bottom:-10px;
+    width:10px;
+    height:10px;
+    background:white;
+    left:50%;
+    margin-left:10px;
+    transform:rotate(45deg);
+}
+
+.row:hover span{
+    display:block;
+    width:250px;
+    float:right;
+}

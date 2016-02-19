@@ -21,6 +21,7 @@ function song_click() {
 // /function to place song properly
 function append_songs(song, i) {
     if (i % 2 == 0) {
+        var spanText = 'Genre: ' + song.genre + " Release Date: " + song.released;
         var songDiv = $('<div>', {
             class: 'row'
         });
@@ -32,8 +33,14 @@ function append_songs(song, i) {
             class: 'evenList boxText',
             text: song.name + ' - ' + song.song
         });
+        var songInfoBox = $('<span>',{
+            class:'infoSpan',
+            text:spanText
+        });
+
     }
     else {
+        var spanText = 'Genre: ' + song.genre + " Release Date: " + song.released;
         var songDiv = $('<div>', {
             class: 'row'
         });
@@ -45,9 +52,13 @@ function append_songs(song, i) {
             class: 'oddList boxText',
             text: song.name + ' - ' + song.song
         });
+        var songInfoBox = $('<span>',{
+            class:'infoSpan',
+            text:spanText
+        });
     }
     $('.first_part').append(songDiv);
-    $(songDiv).append(songArt).append(songInfo);
+    $(songDiv).append(songArt).append(songInfo).append(songInfoBox);
     $(songDiv).on('click', function () {
         //console.log(song.name + song.song);
         $(".row").hide();
