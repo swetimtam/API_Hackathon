@@ -49,6 +49,7 @@ $(document).ready(function () {
             }
 
             console.log(top10);
+            append_top10_list();
         }
     })
 
