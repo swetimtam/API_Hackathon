@@ -2,8 +2,8 @@
  * Created by Timmy on 2/18/2016.
  */
 
-var top10SongsInfo = [];
-var test;
+var top10Music= [];
+
 
 function getVines(name,song) {
     var data = {
@@ -32,23 +32,6 @@ function getVines(name,song) {
         }
 
     })
-
-
-    $.ajax({
-        url:'https://api.flickr.com/services/rest?method=flickr.photos.search&api_key=6abbc58914aa0ad192b80428161ef908&format=json&nojsoncallback=1&page=1&per_page=6',
-        dataType:'json',
-        method:'get',
-        text: 'adele',
-        success: function(response){
-            test = response;
-            console.log(response.photos.photo[0].id);
-            $("img").attr("src","https://farm2.staticflickr.com/1599/24482774874_ef26a8623c.jpg");
-        },
-        error: function(response){
-            console.log("error message");
-        }
-
-    });
 }
 
 $(document).ready(function () {
@@ -61,18 +44,22 @@ $(document).ready(function () {
             //loops through every song in top 10 for info and adds it to an array of objects
             for (var i = 0; i < response.feed.entry.length; i++) {
                 var artist = {};
+                var ajaxObj = response.feed.entry[i];
                 //console logs the artist and song name of the top 10 itune songs
-                artist.name = (response.feed.entry[i]['im:artist'].label);
-                artist.song = (response.feed.entry[i]['im:name'].label);
-                artist.albumArt = (response.feed.entry[i]['im:image'][2].label);
-                artist.genre = (response.feed.entry[i].category.attributes.label);
-               top10SongsInfo.push(artist);
+                artist.name = (ajaxObj['im:artist'].label);
+                artist.song = (ajaxObj['im:name'].label);
+                artist.albumArt = (ajaxObj['im:image'][2].label);
+                artist.genre = (ajaxObj.category.attributes.label);
+                artist.release = (ajaxObj['im:releaseDate'].attributes.label);
+               top10Music.push(artist);
             }
 
-            console.log(top10SongsInfo);
+            //console.log(top10SongsInfo);
             append_top10_list();
         }
     });
+
+
 });
 
 //    $.ajax({
