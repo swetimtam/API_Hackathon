@@ -4,7 +4,8 @@
 var global_result;
 var top10 = [];
 var data = {};
-function getVines() {
+function getVines(name,song) {
+    data = name + " " + song;
     $.ajax({
         dataType: 'json',
         url: 'http://s-apis.learningfuze.com/hackathon/vine/index.php',
@@ -18,6 +19,7 @@ function getVines() {
 
             for (var k in test) {
                 if (test.hasOwnProperty(k)) {
+                    // appending magic happens here
                     $('body').append(test[k].html);
                 }
             }
@@ -45,10 +47,7 @@ $(document).ready(function () {
                 artist.genre = (response.feed.entry[i].category.attributes.label);
                 top10.push(artist);
             }
-            data = {
-                search_term: top10[4].name + " " + top10[4].song,
-                count: 50
-            };
+
             console.log(top10);
         }
     })

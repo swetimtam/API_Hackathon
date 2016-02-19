@@ -13,6 +13,7 @@ $(document).ready(function(){
 });
 
 function cleanVines (arr){
+
     var output = {};
     var len = arr.length;
     for(var i = 0; i < len; i++){
