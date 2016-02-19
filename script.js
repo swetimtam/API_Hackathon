@@ -10,6 +10,7 @@ $(document).ready(function(){
 });
 
 function cleanVines (arr){
+
     var output = {};
     var len = arr.length;
     for(var i = 0; i < len; i++){
@@ -73,7 +74,8 @@ function append_songs(song){
         $('.first_part').append(songdiv);
         $(songdiv).append(songart).append(songinfo);
         $(songdiv).on('click',function(){
-            console.log(song.name + song.song);
+            //console.log(song.name + song.song);
+            getVines(song.name,song.song);
         })
 
 }
