@@ -1,71 +1,76 @@
 
+var tweets_array = []; //array to keep the tweets
+var output;
+
+//function on load to pre-populate songs
+$(document).ready(function(){
+    //fetch_tweets();
+    //append_tweets();
+
+    $('#mainBody').click(function(){
+        song_click();
+    });
+});
+
+function cleanVines (arr){
+    var output = {};
+    var len = arr.length;
+    for(var i = 0; i < len; i++){
+        if(arr[i] !== null){
+            output[arr[i].author_url] = arr[i];
+        }
+    }
+    return output;
+}
+
 var song_array = [{text:'cats are great',image_search_word:'cats',array_index:0},{text:'dogs are great',image_search_word:'dogs',array_index:1},{text:'monkeys are great',image_search_word:'monkeys',array_index:2},{text:'wombats are great',image_search_word:'wombats',array_index:3},{text:'horses are great',image_search_word:'horses',array_index:4}]; //array to keep the tweets
 var vine_array = [{url:'https://pbs.twimg.com/profile_images/447374371917922304/P4BzupWu.jpeg'},{url:'http://cdn.earthporm.com/wp-content/uploads/2014/07/cute-bunnies-tongues-6.jpg'},{url:'https://i.ytimg.com/vi/2hh9lWK-iwc/maxresdefault.jpg'},{url:'http://cdn.earthporm.com/wp-content/uploads/2014/07/cute-bunnies-tongues-1.jpg'},{url:'http://www.fuzzfeed.com/wp-content/uploads/2015/10/cute-baby-bunny-wallpaper-hq-mjhek.jpg'}]; //array to keep photos
 var non_search_words=['a','an','the','them','if','about','above','across','after','against','along','among','apart','around','as','at','because','before','behind','be','below','beneath','beside','between','beyond','but','by','down','during','except','for','from','in','inside','into','like','near','next','of','off','on','onto','out','outside','over','past','regarding','round','since','through','throughout','till','to','toward','under','underneath','unlike','until','up','upon','with','within','without'];
 
-
-
-//function on load to pre-populate tweets
-$(document).ready(function(){
-    fetch_songs();
-    append_songs();
-
-    $('#tweets p').click(function(){
-        song_click();
-    });
-
-    //function when the button is clicked
-    $('button').click(function(){
-        //clear_tweets_array();
-        clear_songs();
-        append_songs();
-    });
-});
-
 //function for when tweets get clicked to hide tweets, and show images
 function song_click(){
-    $('#tweets').hide();
+    $('.first_part').hide();
     $('#images_side').show();
     append_vine();
 }
 
-//function to clear tweets
+//function to clear songs
 function clear_songs(){
-    $('#tweets p').empty();
+    $('#mainBody p').empty();
 };
-function clear_tweets_array(){
-  tweets_array = [];
+function clear_song_array(){
+  song_array = [];
 };
-//function to fetch songs and populate the tweets_array
-//globals used: tweets_array
+//function to fetch songs and populate the song_array
+//globals used: song_array
 
 function fetch_songs(){
     add_songs_to_array();
-};
+}
 
-//function to add tweets to the tweet array
+//function to add song to the tweet array
 function add_songs_to_array(){
     var array_index=song_array.length;
-    var tweets={
+    var song={
         text:'',
         image_search_word:'',
-        array_index:array_index,
+        array_index:array_index
     };
 }
 
-//function for tweets on click to populate flickr photos
+//function for song on click to populate flickr photos
 //@parameters: first noun after the hyphen to be sent to flickr for image lookup
 
-//function to place tweets properly
+//function to place song properly
 function append_songs(){
     for(var i=0;i<song_array.length;i++){
         var song = $('<p>',{
             text:song_array[i].text
         });
-        $('.singleTweet').eq([i]).append(song);
+        $('.first_part').eq([i]).append(song);
     }
 
-};
+}
 
 //function to fetch photos
 function fetch_photos(){
@@ -77,9 +82,9 @@ function fetch_photos(){
 function add_vine_to_array(){
     var array_index=vine_array.length;
     var vine={
-        url:'',
+        url:''
     };
-    photo_array.push(vine);
+    vine_array.push(vine);
 }
 
 //function to clear photos area
@@ -87,7 +92,7 @@ $('#images_side').empty();
 
 //function to clear photo array
 function clear_photo_array(){
-    photo_array = [];
+    vine_array = [];
 }
 
 //function to place images properly
@@ -100,4 +105,8 @@ function append_vine(){
         $('.image').eq([i]).append(testimg);
     }
 }
+
+
+
+
 
