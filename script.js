@@ -6,6 +6,7 @@ var output;
 $(document).ready(function(){
     //fetch_tweets();
     //append_tweets();
+    loading_page_animation();
 
     $('#mainBody').click(function(){
         song_click();
@@ -104,6 +105,10 @@ function append_vine(){
         var testimg = image.addClass('img-responsive');
         $('.image').eq([i]).append(testimg);
     }
+}
+function loading_page_animation(){
+    $("#above_main").show(5000);
+
 }
 
 
