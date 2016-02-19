@@ -1,5 +1,6 @@
 #main_body{/*main page style*/
-    z-index: 1000;
+    height: 100%;
+    z-index:1 ;
     background: #222222;
 }
 .header{/* header have liner color effect and some style*/
@@ -83,16 +84,27 @@ li > a{
 li>a:hover{/*album name list hover effect*/
     font-size:3.3em ;
 }
-#main_body::before,#main_body::after{/*page load animation still in progress*/
+#main_body{
+    background-color: #5C5350;
+}
+
+body::before,body::after{/*page load animation still in progress*/
     content: '';
-    z-index: 1000;
     background: #222222;
-    position: absolute;
+    height: 100%;
+    width: 50%;
+    position: fixed;
     transition-duration: 4s;
     transform: translateX(0%);
+    top: 0px;
+    animation-delay: 3s;
+    z-index: 1000;
 }
-#main_body::before{
-    right: 0;
+body::before{
+    right: 0px;
+}
+body::after{
+    left: 0px;
 }
 .animate::before{
     transform: translateX(100%)!important;
