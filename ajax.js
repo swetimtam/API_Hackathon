@@ -3,9 +3,12 @@
  */
 var global_result;
 var top10 = [];
-var data = {};
+var searchStr = "";
 function getVines(name,song) {
-    data = name + " " + song;
+    var data = {
+        search_term: name+" "+song
+    }
+    searchStr = name + " " + song;
     $.ajax({
         dataType: 'json',
         url: 'http://s-apis.learningfuze.com/hackathon/vine/index.php',

@@ -74,7 +74,8 @@ function append_songs(song){
         $('.first_part').append(songdiv);
         $(songdiv).append(songart).append(songinfo);
         $(songdiv).on('click',function(){
-            console.log(song.name + song.song);
+            //console.log(song.name + song.song);
+            getVines(song.name,song.song);
         })
 
 }
