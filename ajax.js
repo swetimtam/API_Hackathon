@@ -1,14 +1,12 @@
 /**
  * Created by Timmy on 2/18/2016.
  */
-var global_result;
-var top10 = [];
-var searchStr = "";
-function getVines(name,song) {
+
+function getVines(name, song) {
     var data = {
-        search_term: name+" "+song
-    };
-    searchStr = name + " " + song;
+        search_term: name + " " + song
+    }
+
     $.ajax({
         dataType: 'json',
         url: 'http://s-apis.learningfuze.com/hackathon/vine/index.php',
@@ -17,7 +15,7 @@ function getVines(name,song) {
         success: function (response) {
             console.log("success", response);
             output = response;
-            var test = cleanVines(output.vines);
+            var test = noDupVines(output.vines);
             console.log("This is the clean list: ", test);
 
             for (var k in test) {
@@ -30,16 +28,16 @@ function getVines(name,song) {
         error: function (response) {
             console.log("error message");
         }
-
     })
 }
+
 $(document).ready(function () {
     $.ajax({
         dataType: 'json',
         cache: false,
         url: 'http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topsongs/limit=10/json',
         success: function (response) {
-            console.log('AJAX Success function called, with the following result:', response);
+            console.log("success", response);
             //loops through every song in top 10 for info and adds it to an array of objects
             for (var i = 0; i < response.feed.entry.length; i++) {
                 var artist = {};
@@ -48,34 +46,13 @@ $(document).ready(function () {
                 artist.song = (response.feed.entry[i]['im:name'].label);
                 artist.albumArt = (response.feed.entry[i]['im:image'][2].label);
                 artist.genre = (response.feed.entry[i].category.attributes.label);
-                top10.push(artist);
+                top10Music.push(artist);
             }
-
-            console.log(top10);
+            console.log(top10Music);
             append_top10_list();
+        },
+        error: function (response) {
+            console.log("error message");
         }
-    });
+    })
 });
-
-//    $.ajax({
-//        dataType:'json',
-//        url:'http://s-apis.learningfuze.com/hackathon/vine/index.php',
-//        data: data,
-//        cache: false,
-//        success: function(response){
-//            console.log("success", response);
-//            output = response;
-//            var test = cleanVines(output.vines);
-//            console.log("This is the clean list: ", test);
-//
-//            for(var k in test){
-//                if(test.hasOwnProperty(k)){
-//                    $('#images_side').append(test[k].html);
-//                }
-//            }
-//        },
-//        error: function(response){
-//            console.log("error message");
-//        }
-//
-//});

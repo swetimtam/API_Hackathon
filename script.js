@@ -1,118 +1,50 @@
+//global variables
+var top10Music = [];
 
-var tweets_array = []; //array to keep the tweets
-var output;
-
-//function on load to pre-populate songs
-$(document).ready(function(){
-    $('#mainBody').click(function(){
-        song_click();
-    });
-});
-
-function cleanVines (arr){
-
+//function to compare author of vines to each other, if the same, then remove duplicates
+function noDupVines(arr) {
     var output = {};
     var len = arr.length;
-    for(var i = 0; i < len; i++){
-        if(arr[i] !== null){
+    for (var i = 0; i < len; i++) {
+        if (arr[i] !== null) {
             output[arr[i].author_url] = arr[i];
         }
     }
     return output;
 }
 
-//function for when tweets get clicked to hide tweets, and show images
-function song_click(){
+//function for when songs get clicked to hide songs, and show vines
+function song_click() {
     $('.first_part').hide();
     $('#images_side').show();
-    //append_vine();
-}
-
-//function to clear songs
-function clear_songs(){
-    $('#mainBody p').empty();
-};
-function clear_song_array(){
-  song_array = [];
-};
-//function to fetch songs and populate the song_array
-//globals used: song_array
-
-function fetch_songs(){
-    add_songs_to_array();
-}
-
-//function to add song to the tweet array
-function add_songs_to_array(){
-    var array_index=song_array.length;
-    var song={
-        text:'',
-        image_search_word:'',
-        array_index:array_index
-    };
 }
 
 //function for song on click to populate flickr photos
 //@parameters: first noun after the hyphen to be sent to flickr for image lookup
 
-function append_top10_list(){
-    for(var i=0;i<top10.length;i++){
-        append_songs(top10[i]);
+function append_top10_list() {
+    for (var i = 0; i < top10Music.length; i++) {
+        append_songs(top10Music[i]);
     }
 }
 
 // /function to place song properly
-function append_songs(song){
-        var songdiv = $('<div>');
-        var songart = $('<img>',{
-            src:song.albumArt,
-        });
-        var songinfo= $('<p>',{
-           text:song.name + ' - ' + song.song
-        });
+function append_songs(song) {
+    var songDiv = $('<div>');
+    var songArt = $('<img>', {
+        src: song.albumArt,
+    });
+    var songInfo = $('<p>', {
+        text: song.name + ' - ' + song.song
+    });
 
-        $('.first_part').append(songdiv);
-        $(songdiv).append(songart).append(songinfo);
-        $(songdiv).on('click',function(){
-            //console.log(song.name + song.song);
-            getVines(song.name,song.song);
-        })
-
+    $('.first_part').append(songDiv);
+    $(songDiv).append(songArt).append(songInfo);
+    $(songDiv).on('click', function () {
+        //console.log(song.name + song.song);
+        getVines(song.name, song.song);
+    })
 }
-
-//function to fetch photos
-function fetch_photos(){
-
-    add_vine_to_array();
-}
-
-//function to add photos to the photo_array
-function add_vine_to_array(){
-    var array_index=vine_array.length;
-    var vine={
-        url:''
-    };
-    vine_array.push(vine);
-}
-
-//function to clear photos area
-$('#images_side').empty();
-
-//function to clear photo array
-//function clear_photo_array(){
-//    vine_array = [];
-//}
-
-//function to place images properly
-//function append_vine(){
-//    for(var i=0;i<vine_array.length;i++){
-//        var image = $('<img>',{
-//            src:vine_array[i].url
-//        });
-//        var testimg = image.addClass('img-responsive');
-//        $('.image').eq([i]).append(testimg);
-//    }
-//}
 
 
 
