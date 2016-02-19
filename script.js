@@ -1,11 +1,11 @@
-var tweets_array = []; //array to keep the tweets
+var tweets_array = [{text:'cats are great',image_search_word:'cats',array_index:0},{text:'dogs are great',image_search_word:'dogs',array_index:1},{text:'monkeys are great',image_search_word:'monkeys',array_index:2}]; //array to keep the tweets
 var photo_array = []; //array to keep photos
 var non_search_words=['a','an','the','them','if','about','above','across','after','against','along','among','apart','around','as','at','because','before','behind','be','below','beneath','beside','between','beyond','but','by','down','during','except','for','from','in','inside','into','like','near','next','of','off','on','onto','out','outside','over','past','regarding','round','since','through','throughout','till','to','toward','under','underneath','unlike','until','up','upon','with','within','without'];
 
 //function on load to pre-populate tweets
 $(document).ready(function(){
     fetch_tweets();
-    append_tweets();
+    //append_tweets();
 });
 
 //function when the button is clicked
