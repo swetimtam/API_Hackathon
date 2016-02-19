@@ -51,7 +51,7 @@ function append_songs(song, i) {
     $(songDiv).append(songArt).append(songInfo);
     $(songDiv).on('click', function () {
         //console.log(song.name + song.song);
-        $('div:not(body)').hide();
+        $(".row").hide();
         getVines(song.name, song.song);
     })
 }
