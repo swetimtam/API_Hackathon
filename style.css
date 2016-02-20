@@ -275,7 +275,7 @@ body::after {
 
 .row:hover span{
     display:block;
-    width: 400px;
+    width: 300px;
 }
 /*.wrap .front {*/
     /*transform: translateZ(200px);*/
