@@ -14,7 +14,7 @@
     border: 10px solid black;
 }
 .first_part{/*this first part is showing iTunes photos and album name, This is down the header*/
-    margin: 0 auto;
+    margin: 0 10%;
     width: 80%;
     height: auto;
     background-image: url("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcScVtAyceRnWZ92jVdNo94jNMRHKCaZ3ckFK9BxU5Vq4VC7Jzd1");
@@ -31,59 +31,45 @@
     opacity: .9;
     cursor: pointer;
 }
-.row:hover{/*row hover effect and it's infinite animation*/
-    animation: image_display;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;    /*background-color: lightgray;*/
-}
-@-webkit-keyframes image_display {/*row hover have this animation effect*/
-    0%   {background-color: gainsboro; left:0px; top:0px;}
-    25%  {background-color:#C9A89D; left:200px; top:0px;}
-    50%  {background-color:lightgray; left:200px; top:200px;}
-    75%  {background-color:gainsboro; left:0px; top:200px;}
-    100% {background-color:#C9A89D; left:0px; top:0px;}
-}
+/**/
 .first_part > .row > .cover{/*first part rows cover have these styling*/
     width: 30%;
     height: 100%;
     border: 1px solid black;
     border-radius: 100%;
 }
-.first_part > .row:nth-child(odd) > .cover, .evenImg{/*first part odd rows style*/
+.evenImg{/*first part odd rows style*/
     float: left;
 }
-.first_part > .row:nth-child(even) > .cover, .oddImg{/*first part even rows style*/
+.oddImg{/*first part even rows style*/
     float:right;
 }
 
 
-.first_part > .row:nth-child(odd) > ul, .evenList{/*first part row un order for odd list style created dynamic class*/
+.evenList{/*first part row un order for odd list style created dynamic class*/
     text-align: center;
     transform: translate(-10%,200%);
 }
-.first_part > .row:nth-child(even) > ul, .oddList {/*first part row un order for even list style dynamic class*/
+.oddList {/*first part row un order for even list style dynamic class*/
     text-align: center;
     transform: translate(10%,200%);
 }
 .cover:hover{/*album image hover effect*/
     opacity: 0.5;
     border: 10px solid black;
-
-}
-ul>li{
-    list-style-type: square;
 }
 
-li > a, .boxText{
+.boxText{
     color:black;
     text-shadow: 4px 4px 2px gray;
-    font-size: 3em;
+    font-size:200%;
     font-family:"Brush Script MT";
 //background: linear-gradient(lightgray,grey);
 }
-li>a:hover{/*album name list hover effect*/
-    font-size:3.3em ;
-}
+
+/*p:hover{!*album name list hover effect*!*/
+    /*font-size:3.3em ;*/
+/*}*/
 
 body::before,body::after{/*page load animation still in progress*/
     content: '';
@@ -129,8 +115,8 @@ body::after{
     position: relative;
     left: 34%;
     top: 24%;
-
 }
+
 @keyframes rotate {
     from {
         transform: rotateX(0deg) rotateY(0deg);
