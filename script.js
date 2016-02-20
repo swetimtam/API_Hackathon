@@ -52,7 +52,13 @@ function append_songs(song, i) {
     $(songDiv).on('click', function () {
         //console.log(song.name + song.song);
         $(".row").hide();
+        cubePhoto(song.albumArt);
+        $(".cubePage").show();
         getVines(song.name, song.song);
+        setTimeout(function() {
+            $('.cubePage').hide();
+        },5000);
+        //getVines(song.name, song.song);
     })
 }
 $("#main_body").click(function(){
@@ -62,10 +68,12 @@ $("#main_body").click(function(){
 
 
 
-function cubePhoto(){
+function cubePhoto(songImage){
     for(var i = 0; i<top10Music.length; i++){
         var songart = $('<img>',{
-            src:song.albumArt
+            src:songImage,
+            class:'imgDiv'
+
         });
         var songdiv = $('<div>',{
             class:'cubediv'+i

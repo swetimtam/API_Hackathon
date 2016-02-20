@@ -23,13 +23,17 @@ function getVines(name,song) {
             //    class:'vineContainer'
             //});
             //$('.first_part').append(vineContainer);
+
             for (var k in test) {
                 if (test.hasOwnProperty(k)) {
                     var vineDiv = $("<div>",{
                         class:"vineDiv"
-                        });
+                    });
                     vineDiv.append(test[k].html);
                     $('.first_part').append(vineDiv);
+                    setTimeout(function(){
+
+                    },1000);
                 }
             }
         },
@@ -70,4 +74,3 @@ $(document).ready(function () {
         }
     });
 });
-
