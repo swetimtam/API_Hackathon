@@ -56,14 +56,11 @@ function append_songs(song, i) {
         $(".cubePage").show();
         getVines(song.name, song.song);
         setTimeout(function() {
-            $('.cubePage').hide("explode");
-        },5000);
-        //getVines(song.name, song.song);
+            $('.cubePage').hide();
+    },5000);
     })
 }
-$("#main_body").click(function(){
-    $("#main_body").addClass('animate');
-});
+
 
 
 
@@ -73,7 +70,6 @@ function cubePhoto(songImage){
         var songart = $('<img>',{
             src:songImage,
             class:'imgDiv'
-
         });
         var songdiv = $('<div>',{
             class:'cubediv'+i
@@ -84,3 +80,4 @@ function cubePhoto(songImage){
         $(cube).append(songart);
     }
 }
+
