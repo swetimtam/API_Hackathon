@@ -58,7 +58,6 @@ function append_songs(song, i) {
         setTimeout(function() {
             $('.cubePage').hide();
     },5000);
-        //getVines(song.name, song.song);
     })
 }
 
@@ -69,7 +68,8 @@ function append_songs(song, i) {
 function cubePhoto(songImage){
     for(var i = 0; i<top10Music.length; i++){
         var songart = $('<img>',{
-            src:songImage
+            src:songImage,
+            class:'imgDiv'
         });
         var songdiv = $('<div>',{
             class:'cubediv'+i
@@ -80,3 +80,4 @@ function cubePhoto(songImage){
         $(cube).append(songart);
     }
 }
+

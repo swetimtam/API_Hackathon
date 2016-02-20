@@ -28,7 +28,7 @@ function getVines(name,song) {
                 if (test.hasOwnProperty(k)) {
                     var vineDiv = $("<div>",{
                         class:"vineDiv"
-                        });
+                    });
                     vineDiv.append(test[k].html);
                     $('.first_part').append(vineDiv);
                     setTimeout(function(){
@@ -74,4 +74,3 @@ $(document).ready(function () {
         }
     });
 });
-
