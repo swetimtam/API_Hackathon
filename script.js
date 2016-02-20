@@ -92,7 +92,7 @@ function append_songs(song, i) {
                 $('.row').show();
             });
 
-        }, 8000);
+        }, 4000);
 
         console.log("returnToMain1");
 
