@@ -119,7 +119,7 @@ body {
 
 body::before, body::after { /*page load animation still in progress*/
     content: '';
-    background: #222222;
+    background: rgba(0, 0, 0, 0.90);
     height: 100%;
     width: 50%;
     position: fixed;
@@ -228,23 +228,38 @@ body::after {
 }
 
 
-.infoSpan{
-    font-size:14px;
+.evenInfoSpan{
+    font-size: 150%;
     display:none;
-    background:white;
     height:55px;
     position:relative;
     text-align:center;
     text-transform:uppercase;
+    color: white;
+    font-family: 'poiret one';
     top:100px;
     padding:0 10px;
+    float: left;
+}
+
+.oddInfoSpan{
+    font-size: 150%;
+    display:none;
+    height:55px;
+    position:relative;
+    text-align:center;
+    text-transform:uppercase;
+    color: white;
+    font-family: 'poiret one';
+    top:100px;
+    padding:0 10px;
+    float: right;
 }
 
 .infoSpan:after{
     content:'';
     position:absolute;
     bottom:-10px;
-    background:white;
     left:50%;
     margin-left:10px;
     transform:rotate(45deg);
@@ -253,7 +268,6 @@ body::after {
 .row:hover span{
     display:block;
     width:200px;
-    float:right;
 }
 /*.wrap .front {*/
     /*transform: translateZ(200px);*/
