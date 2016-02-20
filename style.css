@@ -140,12 +140,16 @@ body::after{
         transform: rotateX(360deg) rotateY(360deg);
     }
 }
+.cubePage{
+    display: none;
+}
 .cube {
     position: relative;
     width: 20vh;
     transform-style: preserve-3d;
     animation: rotate 10s infinite linear;
 }
+
 .cubediv {
     position: absolute;
     width: 26vh;
