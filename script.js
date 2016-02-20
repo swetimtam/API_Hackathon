@@ -62,10 +62,6 @@ function append_songs(song, i) {
     })
 }
 
-
-
-
-
 function cubePhoto(songImage){
     for(var i = 0; i<top10Music.length; i++){
         var songart = $('<img>',{
