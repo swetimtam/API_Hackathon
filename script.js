@@ -35,6 +35,7 @@ function append_songs(song, i) {
             class: 'evenList boxText',
             text: song.name + ' - ' + song.song
         });
+
         var songInfoBox = $('<span>',{
             class:'evenInfoSpan',
             text:spanTextGenre
@@ -59,6 +60,7 @@ function append_songs(song, i) {
             class: 'oddList boxText',
             text: song.name + ' - ' + song.song
         });
+
         var songInfoBox = $('<span>',{
             class:'oddInfoSpan',
             text:spanTextGenre
@@ -76,10 +78,28 @@ function append_songs(song, i) {
         cubePhoto(song.albumArt);
         $(".cubePage").show();
         getVines(song.name, song.song);
-        setTimeout(function() {
+        setTimeout(function () {
             $('.cubePage').hide();
-    },5000);
-    })
+            var button = $("<button>", {
+                class: "returnToMain",
+                text: "Go Back",
+                style: "position:fixed"
+            });
+            $('.first_part').prepend(button);
+            $('.returnToMain').on("click", function () {
+                console.log("returnToMain");
+                $('.vineDiv').remove();
+                $('.cubediv').children().remove();
+                $(".returnToMain").remove();
+                $('.row').show();
+            });
+
+        }, 4000);
+
+        console.log("returnToMain1");
+
+
+    });
 }
 
 function cubePhoto(songImage){
@@ -88,12 +108,12 @@ function cubePhoto(songImage){
             src:songImage,
             class:'imgDiv'
         });
-        var songdiv = $('<div>',{
-            class:'cubediv'+i
+        var songdiv = $('<div>', {
+            class: 'cubediv' + i
         });
         $('.cubediv').eq(i).append(songdiv);
 
-        var cube = $(".cubediv"+i);
+        var cube = $(".cubediv" + i);
         $(cube).append(songart);
     }
 }
