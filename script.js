@@ -56,7 +56,7 @@ function append_songs(song, i) {
         $(".cubePage").show();
         getVines(song.name, song.song);
         setTimeout(function() {
-            $('.cubePage').hide();
+            $('.cubePage').hide("explode");
         },5000);
         //getVines(song.name, song.song);
     })
