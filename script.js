@@ -15,13 +15,15 @@ function noDupVines(arr) {
 
 //function for when songs get clicked to hide songs, and show vines
 function song_click() {
-    $('.first_part').hide();
-    $('#images_side').show();
+    $('.row').hide();
 }
 
 // /function to place song properly
 function append_songs(song, i) {
     if (i % 2 == 0) {
+        var spanTextGenre = 'Genre: ' + song.genre;
+        var spanTextRelease = "Release Date: " + song.released;
+
         var songDiv = $('<div>', {
             class: 'row'
         });
@@ -33,8 +35,19 @@ function append_songs(song, i) {
             class: 'evenList boxText',
             text: song.name + ' - ' + song.song
         });
+        var songInfoBox = $('<span>', {
+            class: 'infoSpan',
+            text: spanTextGenre
+        });
+        var songInfoBox2 = $('<span>', {
+            class: 'infoSpan',
+            text: spanTextRelease
+        });
+
     }
     else {
+        var spanTextGenre = 'Genre: ' + song.genre;
+        var spanTextRelease = "Release Date: " + song.released;
         var songDiv = $('<div>', {
             class: 'row'
         });
@@ -46,24 +59,32 @@ function append_songs(song, i) {
             class: 'oddList boxText',
             text: song.name + ' - ' + song.song
         });
+        var songInfoBox = $('<span>', {
+            class: 'infoSpan',
+            text: spanTextGenre
+        });
+        var songInfoBox2 = $('<span>', {
+            class: 'infoSpan',
+            text: spanTextRelease
+        });
     }
     $('.first_part').append(songDiv);
-    $(songDiv).append(songArt).append(songInfo);
+    $(songDiv).append(songArt).append(songInfo).append(songInfoBox).append(songInfoBox2);
     $(songDiv).on('click', function () {
         //console.log(song.name + song.song);
         $(".row").hide();
         cubePhoto(song.albumArt);
         $(".cubePage").show();
         getVines(song.name, song.song);
-        setTimeout(function() {
+        setTimeout(function () {
             $('.cubePage').hide();
-            var button = $("<button>",{
-                class:"returnToMain",
-                text:"Go Back",
+            var button = $("<button>", {
+                class: "returnToMain",
+                text: "Go Back",
                 style: "position:fixed"
             });
             $('.first_part').prepend(button);
-            $('.returnToMain').on("click",function(){
+            $('.returnToMain').on("click", function () {
                 console.log("returnToMain");
                 $('.vineDiv').remove();
                 $('.cubediv').children().remove();
@@ -71,12 +92,12 @@ function append_songs(song, i) {
                 $('.row').show();
             });
 
-    },8000);
+        }, 8000);
 
-        //getVines(song.name, song.song);
-    })
-    console.log("returnToMain1");
+        console.log("returnToMain1");
 
+
+    });
 }
 
 
@@ -85,17 +106,19 @@ function append_songs(song, i) {
 
 
 
-function cubePhoto(songImage){
-    for(var i = 0; i<top10Music.length; i++){
-        var songart = $('<img>',{
-            src:songImage
+function cubePhoto(songImage) {
+    for (var i = 0; i < top10Music.length; i++) {
+        var songart = $('<img>', {
+            src: songImage,
+            class: 'imgDiv'
         });
-        var songdiv = $('<div>',{
-            class:'cubediv'+i
+        var songdiv = $('<div>', {
+            class: 'cubediv' + i
         });
         $('.cubediv').eq(i).append(songdiv);
 
-        var cube = $(".cubediv"+i);
+        var cube = $(".cubediv" + i);
         $(cube).append(songart);
     }
 }
+
