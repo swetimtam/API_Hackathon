@@ -36,11 +36,11 @@ function append_songs(song, i) {
             text: song.name + ' - ' + song.song
         });
         var songInfoBox = $('<span>',{
-            class:'infoSpan',
+            class:'evenInfoSpan',
             text:spanTextGenre
         });
         var songInfoBox2 = $('<span>',{
-            class:'infoSpan',
+            class:'evenInfoSpan',
             text:spanTextRelease
         });
 
@@ -60,11 +60,11 @@ function append_songs(song, i) {
             text: song.name + ' - ' + song.song
         });
         var songInfoBox = $('<span>',{
-            class:'infoSpan',
+            class:'oddInfoSpan',
             text:spanTextGenre
         });
         var songInfoBox2 = $('<span>',{
-            class:'infoSpan',
+            class:'oddInfoSpan',
             text:spanTextRelease
         });
     }
@@ -82,10 +82,6 @@ function append_songs(song, i) {
     })
 }
 
-
-
-
-
 function cubePhoto(songImage){
     for(var i = 0; i<top10Music.length; i++){
         var songart = $('<img>',{
@@ -101,4 +97,3 @@ function cubePhoto(songImage){
         $(cube).append(songart);
     }
 }
-
