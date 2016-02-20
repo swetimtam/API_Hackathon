@@ -243,9 +243,9 @@ body::after {
     text-transform:uppercase;
     color: white;
     font-family: 'poiret one';
-    top:100px;
+    top:80px;
     padding:0 10px;
-    float: left;
+    float: right;
     font-weight: 900;
 }
 
@@ -258,9 +258,9 @@ body::after {
     text-transform:uppercase;
     color: white;
     font-family: 'poiret one';
-    top:100px;
+    top:80px;
     padding:0 10px;
-    float: right;
+    float: left;
     font-weight: 900;
 }
 
