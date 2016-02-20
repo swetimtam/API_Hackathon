@@ -19,11 +19,21 @@ function getVines(name,song) {
             output = response;
             var test = noDupVines(output.vines);
             console.log("This is the clean list: ", test);
+            //var vineContainer = $("<div>",{
+            //    class:'vineContainer'
+            //});
+            //$('.first_part').append(vineContainer);
 
             for (var k in test) {
                 if (test.hasOwnProperty(k)) {
-                    // appending magic happens here
-                    $('body').append(test[k].html);
+                    var vineDiv = $("<div>",{
+                        class:"vineDiv"
+                        });
+                    vineDiv.append(test[k].html);
+                    $('.first_part').append(vineDiv);
+                    setTimeout(function(){
+
+                    },1000);
                 }
             }
         },
@@ -36,8 +46,8 @@ function getVines(name,song) {
 
 $(document).ready(function () {
 
-        $("body").addClass('animate');
-        console.log('testing');
+    $("body").addClass('animate');
+    console.log('testing');
 
     $.ajax({
         dataType: 'json',
