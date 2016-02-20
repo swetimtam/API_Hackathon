@@ -1,78 +1,132 @@
-#main_body{/*main page style*/
-    height: 100%;
-    z-index:1 ;
-    background: #222222;
+body {
+    background-image: url("http://1079638729.rsc.cdn77.org/pic/v2/gallery/preview/fon-muzyka-15491.jpg");
+    background-attachment: fixed;
+    background-size: 100% 100%;
 }
-.header{/* header have liner color effect and some style*/
-    margin: 0 auto;
-    width: 100%;
-    height: 20vh;
-    text-align: center;
-    font-family:"Brush Script MT";
-    background-image: url("");
-    background:linear-gradient(#8C6F66,#5C5350);
-    border: 10px solid black;
-}
-.first_part{/*this first part is showing iTunes photos and album name, This is down the header*/
+
+/*#main_body{!*main page style*!*/
+/*height: 100%;*/
+/*width: 100%;*/
+/*z-index:1 ;*/
+/*background-image: url("http://1079638729.rsc.cdn77.org/pic/v2/gallery/preview/fon-muzyka-15491.jpg");*/
+/*background-attachment: fixed;*/
+/*background-size: 100% 100%;*/
+/*position: absolute;*/
+/*}*/
+.header { /* header have liner color effect and some style*/
     margin: 0 10%;
     width: 80%;
-    height: auto;
-    background-image: url("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcScVtAyceRnWZ92jVdNo94jNMRHKCaZ3ckFK9BxU5Vq4VC7Jzd1");
-    opacity: 0.7;
-
+    height: 30vh;
+    text-align: center;
+    border-radius: 15px;
 }
-.row{/*first part have rows with pitcher and album name in ul*/
-    width:80%;
-    height: 20%;
-    border: 5px solid black;
-    border-radius: 10px;
+
+.header img {
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+}
+
+.header h1 {
+    position: absolute;
+    top: 5%;
+    left: 45%;
+    color: white;
+    font-family: 'Lobster';
+}
+
+.first_part { /*this first part is showing iTunes photos and album name, This is down the header*/
+    margin: 0 auto;
+    width: 100%;
+}
+
+.row { /*first part have rows with pitcher and album name in ul*/
+    width: 80%;
+    height: 30vh;
+    border: 1px solid black;
+    border-radius: 15px;
     margin: 1% auto;
-    background-color: #C9A89D;
-    opacity: .9;
+    background-color: black;
+    opacity: .8;
     cursor: pointer;
 }
-/**/
-.first_part > .row > .cover{/*first part rows cover have these styling*/
+
+.row:hover { /*row hover effect and it's infinite animation*/
+    animation: image_display;
+    animation-duration: 2s;
+    animation-iteration-count: infinite; /*background-color: lightgray;*/
+}
+
+@-webkit-keyframes image_display { /*row hover have this animation effect*/
+    0% {
+        background-color: rgba(205, 0, 0, 0.51);
+    }
+    10% {
+        background-color: rgba(205, 17, 120, 0.51);
+    }
+    20% {
+        background-color: rgba(84, 0, 84, 0.5);
+    }
+    30% {
+        background-color: rgba(0, 0, 205, 0.51);
+    }
+    40% {
+        background-color: rgba(0, 155, 205, 0.51);
+    }
+    50% {
+        background-color: rgba(20, 134, 128, 0.5);
+    }
+    60% {
+        background-color: rgba(0, 86, 0, 0.51);
+    }
+    70% {
+        background-color: rgba(142, 203, 33, 0.5);
+    }
+    80% {
+        background-color: rgba(205, 205, 0, 0.51);
+    }
+    90% {
+        background-color: rgba(204, 130, 0, 0.51);
+    }
+    100% {
+        background-color: rgba(153, 40, 0, 0.51);
+    }
+
+}
+
+.cover { /*first part rows cover have these styling*/
     width: 30%;
     height: 100%;
     border: 1px solid black;
-    border-radius: 100%;
+    border-radius: 15px;
 }
-.evenImg{/*first part odd rows style*/
+
+.evenImg { /*first part odd rows style*/
     float: left;
 }
-.oddImg{/*first part even rows style*/
-    float:right;
+
+.oddImg { /*first part even rows style*/
+    float: right;
 }
 
-
-.evenList{/*first part row un order for odd list style created dynamic class*/
+.evenList { /*first part row un order for odd list style created dynamic class*/
     text-align: center;
-    transform: translate(-10%,200%);
+    transform: translate(-10%, 200%);
 }
-.oddList {/*first part row un order for even list style dynamic class*/
+
+.oddList { /*first part row un order for even list style dynamic class*/
     text-align: center;
-    transform: translate(10%,200%);
-}
-.cover:hover{/*album image hover effect*/
-    opacity: 0.5;
-    border: 10px solid black;
+    transform: translate(10%, 200%);
 }
 
-.boxText{
-    color:black;
-    text-shadow: 4px 4px 2px gray;
-    font-size:200%;
-    font-family:"Brush Script MT";
-//background: linear-gradient(lightgray,grey);
+.boxText {
+    color: white;
+    text-shadow: 1px 1px 1px gray;
+    font-size: 2vw;
+    font-family: 'Poiret One';
 }
 
-/*p:hover{!*album name list hover effect*!*/
-    /*font-size:3.3em ;*/
-/*}*/
-
-
-body::before,body::after{/*page load animation still in progress*/
+body::before, body::after { /*page load animation still in progress*/
     content: '';
     background: #222222;
     height: 100%;
@@ -84,30 +138,33 @@ body::before,body::after{/*page load animation still in progress*/
     animation-delay: 3s;
     z-index: 1000;
 }
-body::before{
+
+body::before {
     right: 0px;
 }
-body::after{
+
+body::after {
     left: 0px;
 }
-.animate::before{
-    transform: translateX(100%)!important;
-}
-.animate::after{
-    transform: translateX(-100%)!important;
+
+.animate::before {
+    transform: translateX(100%) !important;
 }
 
+.animate::after {
+    transform: translateX(-100%) !important;
+}
 
 .vineDiv {
-    display:block;
-    width:33%;
+    display: block;
+    width: 33%;
     height: 33%;
     margin: auto;
 }
 
 /*.vineDiv iframe{*/
-    /*width: 100%;*/
-    /*height: 100%;*/
+/*width: 100%;*/
+/*height: 100%;*/
 /*}*/
 
 .wrap {
@@ -127,9 +184,11 @@ body::after{
         transform: rotateX(360deg) rotateY(360deg);
     }
 }
-.cubePage{
+
+.cubePage {
     display: none;
 }
+
 .cube {
     position: relative;
     width: 20vh;
@@ -145,25 +204,31 @@ body::after{
     border: 3px solid black;
 
 }
+
 .back {
     transform: translateZ(-100px) rotateY(180deg);
 }
+
 .right {
     transform: rotateY(-270deg) translateX(100px);
     transform-origin: top right;
 }
+
 .left {
     transform: rotateY(270deg) translateX(-100px);
     transform-origin: left center;
 }
+
 .top {
     transform: rotateX(-90deg) translateY(-100px);
     transform-origin: top center;
 }
+
 .bottom {
     transform: rotateX(90deg) translateY(100px);
     transform-origin: bottom center;
 }
+
 .front {
     transform: translateZ(100px);
 }
