@@ -255,9 +255,9 @@ body::after {
     width:200px;
     float:right;
 }
-.wrap .front {
-    transform: translateZ(200px);
-}
+/*.wrap .front {*/
+    /*transform: translateZ(200px);*/
+/*}*/
 
 /*.wrap:hover .back {*/
     /*transform: translateZ(-200px) rotateY(180deg);*/
