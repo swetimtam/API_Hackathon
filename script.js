@@ -81,7 +81,7 @@ function append_songs(song, i) {
         setTimeout(function () {
             $('.cubePage').hide();
             var button = $("<button>", {
-                class: "returnToMain",
+                class: "returnToMain niceButton",
                 text: "Go Back",
                 style: "position:fixed"
             });
