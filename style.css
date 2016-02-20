@@ -27,7 +27,6 @@ body {
 }
 
 .first_part { /*this first part is showing iTunes photos and album name, This is down the header*/
-    margin: 0 auto;
     width: 100%;
 }
 
@@ -82,9 +81,7 @@ body {
     100% {
         background-color: rgba(153, 40, 0, 0.51);
     }
-
 }
-
 .cover { /*first part rows cover have these styling*/
     width: 30%;
     height: 100%;
@@ -113,13 +110,15 @@ body {
 .boxText {
     color: white;
     text-shadow: 1px 1px 1px gray;
-    font-size: 2vw;
+    font-size: 200%;
     font-family: 'Poiret One';
+    font-weight: bold;
 }
 
 body::before, body::after { /*page load animation still in progress*/
     content: '';
     background: #222222;
+    opacity: 0.8;
     height: 100%;
     width: 50%;
     position: fixed;
@@ -229,9 +228,12 @@ body::after {
 
 
 .infoSpan{
-    font-size:14px;
+    font-size:200%;
+    font-family:"poiret one";
+    font-weight: 900;
     display:none;
-    background:white;
+    #background:inherit;
+    color:white;
     height:55px;
     position:relative;
     text-align:center;
