@@ -27,7 +27,6 @@ body {
 }
 
 .first_part { /*this first part is showing iTunes photos and album name, This is down the header*/
-    margin: 0 auto;
     width: 100%;
 }
 
