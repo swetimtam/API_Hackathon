@@ -57,12 +57,29 @@ function append_songs(song, i) {
         getVines(song.name, song.song);
         setTimeout(function() {
             $('.cubePage').hide();
-            $()
+            var button = $("<button>",{
+                class:"returnToMain",
+                text:"Go Back",
+                style: "position:fixed"
+            });
+            $('.first_part').prepend(button);
+            $('.returnToMain').on("click",function(){
+                console.log("returnToMain");
+                $('.vineDiv').remove();
+                $('.cubediv').children().remove();
+                $(".returnToMain").remove();
+                $('.row').show();
+            });
 
-    },10000);
+    },8000);
+
         //getVines(song.name, song.song);
     })
+    console.log("returnToMain1");
+
 }
+
+
 
 
 
