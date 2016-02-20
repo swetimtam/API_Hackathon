@@ -242,6 +242,7 @@ body::after {
     position:relative;
     text-align:center;
     text-transform:uppercase;
+    top:100px;
     padding:0 10px;
 }
 
