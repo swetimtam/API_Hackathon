@@ -26,8 +26,15 @@ body {
     font-family: 'Lobster';
 }
 
+.header h3 {
+    position: absolute;
+    top: 30%;
+    left: 35%;
+    color: white;
+    font-family: 'Lobster';
+}
+
 .first_part { /*this first part is showing iTunes photos and album name, This is down the header*/
-    margin: 0 auto;
     width: 100%;
 }
 
@@ -82,9 +89,7 @@ body {
     100% {
         background-color: rgba(153, 40, 0, 0.51);
     }
-
 }
-
 .cover { /*first part rows cover have these styling*/
     width: 30%;
     height: 100%;
@@ -115,6 +120,7 @@ body {
     text-shadow: 1px 1px 1px gray;
     font-size: 200%;
     font-family: 'Poiret One';
+    font-weight: bold;
 }
 
 body::before, body::after { /*page load animation still in progress*/
@@ -240,6 +246,7 @@ body::after {
     top:100px;
     padding:0 10px;
     float: left;
+    font-weight: 900;
 }
 
 .oddInfoSpan{
@@ -254,6 +261,7 @@ body::after {
     top:100px;
     padding:0 10px;
     float: right;
+    font-weight: 900;
 }
 
 .infoSpan:after{
@@ -267,7 +275,7 @@ body::after {
 
 .row:hover span{
     display:block;
-    width:200px;
+    width: 400px;
 }
 /*.wrap .front {*/
     /*transform: translateZ(200px);*/
