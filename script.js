@@ -51,13 +51,32 @@ function append_songs(song, i) {
     $(songDiv).append(songArt).append(songInfo);
     $(songDiv).on('click', function () {
         //console.log(song.name + song.song);
-        $('div:not(body)').hide();
+        $(".row").hide();
+        cubePhoto(song.albumArt);
+        $(".cubePage").show();
         getVines(song.name, song.song);
+        setTimeout(function() {
+            $('.cubePage').hide();
+    },5000);
+        //getVines(song.name, song.song);
     })
 }
-$("#main_body").click(function(){
-    $("#main_body").addClass('animate');
-});
 
 
 
+
+
+function cubePhoto(songImage){
+    for(var i = 0; i<top10Music.length; i++){
+        var songart = $('<img>',{
+            src:songImage
+        });
+        var songdiv = $('<div>',{
+            class:'cubediv'+i
+        });
+        $('.cubediv').eq(i).append(songdiv);
+
+        var cube = $(".cubediv"+i);
+        $(cube).append(songart);
+    }
+}
