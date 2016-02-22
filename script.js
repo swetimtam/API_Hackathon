@@ -36,13 +36,13 @@ function append_songs(song, i) {
             text: song.name + ' - ' + song.song
         });
 
-        var songInfoBox = $('<span>',{
-            class:'evenInfoSpan',
-            text:spanTextGenre
+        var songInfoBox = $('<span>', {
+            class: 'evenInfoSpan',
+            text: spanTextGenre
         });
-        var songInfoBox2 = $('<span>',{
-            class:'evenInfoSpan',
-            text:spanTextRelease
+        var songInfoBox2 = $('<span>', {
+            class: 'evenInfoSpan',
+            text: spanTextRelease
         });
 
     }
@@ -61,13 +61,13 @@ function append_songs(song, i) {
             text: song.name + ' - ' + song.song
         });
 
-        var songInfoBox = $('<span>',{
-            class:'oddInfoSpan',
-            text:spanTextGenre
+        var songInfoBox = $('<span>', {
+            class: 'oddInfoSpan',
+            text: spanTextGenre
         });
-        var songInfoBox2 = $('<span>',{
-            class:'oddInfoSpan',
-            text:spanTextRelease
+        var songInfoBox2 = $('<span>', {
+            class: 'oddInfoSpan',
+            text: spanTextRelease
         });
     }
     $('.first_part').append(songDiv);
@@ -95,18 +95,15 @@ function append_songs(song, i) {
             });
 
         }, 4000);
-
         console.log("returnToMain1");
-
-
     });
 }
 
-function cubePhoto(songImage){
-    for(var i = 0; i<top10Music.length; i++){
-        var songart = $('<img>',{
-            src:songImage,
-            class:'imgDiv'
+function cubePhoto(songImage) {
+    for (var i = 0; i < top10Music.length; i++) {
+        var songart = $('<img>', {
+            src: songImage,
+            class: 'imgDiv'
         });
         var songdiv = $('<div>', {
             class: 'cubediv' + i
