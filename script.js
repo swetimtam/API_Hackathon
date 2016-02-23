@@ -2,6 +2,7 @@
 var top10Music = [];
 
 //function to compare author of vines to each other, if the same, then remove duplicates
+//parameter: an array
 function noDupVines(arr) {
     var output = {};
     var len = arr.length;
@@ -70,7 +71,7 @@ function append_songs(song, i) {
             text: spanTextRelease
         });
     }
-    $('.first_part').append(songDiv);
+    $('.main-content').append(songDiv);
     $(songDiv).append(songArt).append(songInfo).append(songInfoBox).append(songInfoBox2);
     $(songDiv).on('click', function () {
         //console.log(song.name + song.song);
@@ -85,7 +86,7 @@ function append_songs(song, i) {
                 text: "Go Back",
                 style: "position:fixed"
             });
-            $('.first_part').prepend(button);
+            $('.main-content').prepend(button);
             $('.returnToMain').on("click", function () {
                 console.log("returnToMain");
                 $('.vineDiv').remove();
@@ -97,6 +98,46 @@ function append_songs(song, i) {
         }, 4000);
         console.log("returnToMain1");
     });
+}
+
+function getVines(name,song) {
+    var data = {
+        search_term: name+" "+song
+    };
+    $.ajax({
+        dataType: 'json',
+        url: 'http://s-apis.learningfuze.com/hackathon/vine/index.php',
+        data: data,
+        cache: false,
+        success: function (response) {
+            console.log("success", response);
+            output = response;
+            var test = noDupVines(output.vines);
+            console.log("This is the clean list: ", test);
+            //var vineContainer = $("<div>",{
+            //    class:'vineContainer'
+            //});
+            //$('.main-content').append(vineContainer);
+
+            for (var k in test) {
+                if (test.hasOwnProperty(k)) {
+
+                    var vineDiv = $("<div>",{
+                        class:"vineDiv"
+                    });
+                    vineDiv.append(test[k].html);
+                    $('.main-content').append(vineDiv);
+                    setTimeout(function(){
+
+                    },1000);
+                }
+            }
+        },
+        error: function (response) {
+            console.log("error message");
+        }
+
+    })
 }
 
 function cubePhoto(songImage) {
@@ -114,3 +155,33 @@ function cubePhoto(songImage) {
         $(cube).append(songart);
     }
 }
+
+$(document).ready(function () {
+    //initial animation
+    $("body").addClass('animate');
+
+    $.ajax({
+        dataType: 'json',
+        cache: false,
+        url: 'http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topsongs/limit=10/json',
+        success: function (response) {
+            console.log('AJAX Success function called, with the following result:', response);
+            //loops through every song in top 10 for info and adds it to an array of objects
+            for (var i = 0; i < response.feed.entry.length; i++) {
+                var artist = {};
+                var ajaxObj = response.feed.entry[i];
+                //console logs the artist and song name of the top 10 itune songs
+                artist.name = (ajaxObj['im:artist'].label);
+                artist.song = (ajaxObj['im:name'].label);
+                artist.albumArt = (ajaxObj['im:image'][2].label);
+                artist.genre = (ajaxObj.category.attributes.label);
+                artist.released = (ajaxObj['im:releaseDate'].attributes.label);
+                top10Music.push(artist);
+                append_songs(top10Music[i], i);
+            }
+        },
+        error: function (response) {
+            console.log("error message");
+        }
+    });
+});
