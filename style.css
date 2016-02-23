@@ -5,10 +5,7 @@ body {
 }
 
 .header { /* header have liner color effect and some style*/
-    margin: 0 10%;
-    width: 80%;
     height: 30vh;
-    text-align: center;
     border-radius: 15px;
 }
 
@@ -21,7 +18,6 @@ body {
 .header h1 {
     position: absolute;
     top: 5%;
-    left: 45%;
     color: white;
     font-family: 'Lobster';
 }
@@ -29,7 +25,6 @@ body {
 .header h3 {
     position: absolute;
     top: 30%;
-    left: 35%;
     color: white;
     font-family: 'Lobster';
 }
@@ -39,7 +34,7 @@ body {
 }
 
 .row { /*first part have rows with pitcher and album name in ul*/
-    width: 80%;
+    width: 100%;
     height: 30vh;
     border: 1px solid black;
     border-radius: 15px;
