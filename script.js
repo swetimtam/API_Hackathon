@@ -2,6 +2,7 @@
 var top10Music = [];
 
 //function to compare author of vines to each other, if the same, then remove duplicates
+//parameter: an array
 function noDupVines(arr) {
     var output = {};
     var len = arr.length;
@@ -22,7 +23,7 @@ function song_click() {
 function append_songs(song, i) {
     if (i % 2 == 0) {
         var spanTextGenre = 'Genre: ' + song.genre;
-        var spanTextRelease = "Release Date: " + song.released;
+        var spanTextRelease = "Released: " + song.released;
 
         var songDiv = $('<div>', {
             class: 'row'
@@ -32,23 +33,23 @@ function append_songs(song, i) {
             src: song.albumArt,
         });
         var songInfo = $('<p>', {
-            class: 'evenList boxText',
+            class: 'boxText',
             text: song.name + ' - ' + song.song
         });
 
-        var songInfoBox = $('<span>',{
-            class:'evenInfoSpan',
-            text:spanTextGenre
+        var songInfoBox = $('<span>', {
+            class: 'evenInfoSpan',
+            text: spanTextGenre
         });
-        var songInfoBox2 = $('<span>',{
-            class:'evenInfoSpan',
-            text:spanTextRelease
+        var songInfoBox2 = $('<span>', {
+            class: 'evenInfoSpan',
+            text: spanTextRelease
         });
 
     }
     else {
         var spanTextGenre = 'Genre: ' + song.genre;
-        var spanTextRelease = "Release Date: " + song.released;
+        var spanTextRelease = "Released: " + song.released;
         var songDiv = $('<div>', {
             class: 'row'
         });
@@ -57,21 +58,21 @@ function append_songs(song, i) {
             src: song.albumArt,
         });
         var songInfo = $('<p>', {
-            class: 'oddList boxText',
+            class: 'boxText',
             text: song.name + ' - ' + song.song
         });
 
-        var songInfoBox = $('<span>',{
-            class:'oddInfoSpan',
-            text:spanTextGenre
+        var songInfoBox = $('<span>', {
+            class: 'oddInfoSpan',
+            text: spanTextGenre
         });
-        var songInfoBox2 = $('<span>',{
-            class:'oddInfoSpan',
-            text:spanTextRelease
+        var songInfoBox2 = $('<span>', {
+            class: 'oddInfoSpan',
+            text: spanTextRelease
         });
     }
-    $('.first_part').append(songDiv);
-    $(songDiv).append(songArt).append(songInfo).append(songInfoBox).append(songInfoBox2);
+    $('.main-content').append(songDiv);
+    $(songDiv).append(songArt).append(songInfo).append(songInfoBox2).append(songInfoBox);
     $(songDiv).on('click', function () {
         //console.log(song.name + song.song);
         $(".row").hide();
@@ -81,11 +82,11 @@ function append_songs(song, i) {
         setTimeout(function () {
             $('.cubePage').hide();
             var button = $("<button>", {
-                class: "returnToMain niceButton",
+                class: "returnToMain backButton col-xs-3 col-md-2",
                 text: "Go Back",
                 style: "position:fixed"
             });
-            $('.first_part').prepend(button);
+            $('.main-content').prepend(button);
             $('.returnToMain').on("click", function () {
                 console.log("returnToMain");
                 $('.vineDiv').remove();
@@ -95,18 +96,55 @@ function append_songs(song, i) {
             });
 
         }, 4000);
-
-        console.log("returnToMain1");
-
-
     });
 }
 
-function cubePhoto(songImage){
-    for(var i = 0; i<top10Music.length; i++){
-        var songart = $('<img>',{
-            src:songImage,
-            class:'imgDiv'
+function getVines(name,song) {
+    var data = {
+        search_term: name + " " + song
+    };
+    $.ajax({
+        dataType: 'json',
+        url: 'http://s-apis.learningfuze.com/hackathon/vine/index.php',
+        data: data,
+        cache: false,
+        success: function (response) {
+            console.log("success", response);
+            output = response;
+            var test = noDupVines(output.vines);
+            console.log("This is the clean list: ", test);
+            //var vineContainer = $("<div>",{
+            //    class:'vineContainer'
+            //});
+            //$('.main-content').append(vineContainer);
+
+            for (var k in test) {
+                if (test.hasOwnProperty(k)) {
+                    var vineDiv = $("<div>",{
+                        class:"vineDiv col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3"
+                    });
+                    vineDiv.append(test[k].html, {
+                        class: "col-xs-12"
+                    });
+                    $('.main-content').append(vineDiv);
+                    setTimeout(function(){
+
+                    },1000);
+                }
+            }
+        },
+        error: function (response) {
+            console.log("error message");
+        }
+
+    })
+}
+
+function cubePhoto(songImage) {
+    for (var i = 0; i < top10Music.length; i++) {
+        var songart = $('<img>', {
+            src: songImage,
+            class: 'imgDiv'
         });
         var songdiv = $('<div>', {
             class: 'cubediv' + i
@@ -117,3 +155,33 @@ function cubePhoto(songImage){
         $(cube).append(songart);
     }
 }
+
+$(document).ready(function () {
+    //initial animation
+    $("body").addClass('animate');
+
+    $.ajax({
+        dataType: 'json',
+        cache: false,
+        url: 'http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topsongs/limit=10/json',
+        success: function (response) {
+            console.log('AJAX Success function called, with the following result:', response);
+            //loops through every song in top 10 for info and adds it to an array of objects
+            for (var i = 0; i < response.feed.entry.length; i++) {
+                var artist = {};
+                var ajaxObj = response.feed.entry[i];
+                //console logs the artist and song name of the top 10 itune songs
+                artist.name = (ajaxObj['im:artist'].label);
+                artist.song = (ajaxObj['im:name'].label);
+                artist.albumArt = (ajaxObj['im:image'][2].label);
+                artist.genre = (ajaxObj.category.attributes.label);
+                artist.released = (ajaxObj['im:releaseDate'].attributes.label);
+                top10Music.push(artist);
+                append_songs(top10Music[i], i);
+            }
+        },
+        error: function (response) {
+            console.log("error message");
+        }
+    });
+});
