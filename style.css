@@ -101,10 +101,10 @@ body {
     color: white;
     position: relative;
     text-shadow: 2px 2px 2px black;
-    font-size: 300%;
+    font-size: 250%;
     font-family: 'Poiret One';
     font-weight: bold;
-    margin: 40px 40px 40px 20px;
+    margin: 30px 40px 30px 20px;
     text-align: center;
     text-transform: capitalize;
 }
@@ -219,7 +219,7 @@ body::after {
 
 .evenInfoSpan, .oddInfoSpan {
     text-shadow: 2px 2px 2px black;
-    font-size: 250%;
+    font-size: 200%;
     display: none;
     /*height: 55px;*/
     /*position: relative;*/
