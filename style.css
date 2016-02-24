@@ -101,7 +101,7 @@ body {
     color: white;
     position: relative;
     text-shadow: 2px 2px 2px black;
-    font-size: 250%;
+    font-size: 300%;
     font-family: 'Poiret One';
     font-weight: bold;
     margin: 30px 40px 30px 20px;
@@ -299,6 +299,12 @@ body::after {
 /*.cube > div {*/
 /*transition: transform 0.2s ease-in;*/
 /*}*/
+
+@media screen and (max-width:1600px){
+    .boxText{
+        font-size:250%;
+    }
+}
 
 @media screen and (max-width:640px) {
     .boxText {
