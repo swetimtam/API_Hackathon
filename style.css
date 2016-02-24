@@ -48,10 +48,10 @@ body {
 
 @-webkit-keyframes rainbow { /*row hover have this animation effect*/
     0% {
-        background-color: rgba(205, 0, 0, 0.51);
+        background-color: rgba(205, 0, 0, 0.5);
     }
     10% {
-        background-color: rgba(205, 17, 120, 0.51);
+        background-color: rgba(205, 17, 120, 0.5);
     }
     20% {
         background-color: rgba(84, 0, 84, 0.5);
@@ -130,11 +130,11 @@ body::after {
     left: 0px;
 }
 
-.animate::before {
+.curtain::before {
     transform: translateX(100%) !important;
 }
 
-.animate::after {
+.curtain::after {
     transform: translateX(-100%) !important;
 }
 
@@ -145,6 +145,7 @@ body::after {
     /*margin: auto;*/
 }
 
+/*container for cube*/
 .wrap {
     perspective: 253vw;
     perspective-origin: 152% -72vw;
@@ -240,14 +241,14 @@ body::after {
     float: right;
 }
 
-.infoSpan:after {
-    content: '';
-    /*position: absolute;*/
-    /*bottom: -10px;*/
-    /*left: 50%;*/
-    margin-left: 10px;
-    transform: rotate(45deg);
-}
+/*.infoSpan:after {*/
+    /*content: '';*/
+    /*!*position: absolute;*!*/
+    /*!*bottom: -10px;*!*/
+    /*!*left: 50%;*!*/
+    /*margin-left: 10px;*/
+    /*transform: rotate(45deg);*/
+/*}*/
 
 .row:hover span {
     display: block;
@@ -272,34 +273,6 @@ body::after {
     animation-iteration-count: infinite;
 }
 
-/*.wrap .front {*/
-/*transform: translateZ(200px);*/
-/*}*/
-
-/*.wrap:hover .back {*/
-/*transform: translateZ(-200px) rotateY(180deg);*/
-/*}*/
-
-/*.wrap:hover .right {*/
-/*transform: rotateY(-270deg) translateZ(100px) translateX(100px);*/
-/*}*/
-
-/*.wrap:hover .left {*/
-/*transform: rotateY(270deg) translateZ(100px) translateX(-100px);*/
-/*}*/
-
-/*.wrap:hover .top {*/
-/*transform: rotateX(-270deg) translateZ(100px) translateY(-100px);*/
-/*}*/
-
-/*.wrap:hover .bottom {*/
-/*transform: rotateX(270deg) translateZ(100px) translateY(100px);*/
-/*}*/
-
-/*.cube > div {*/
-/*transition: transform 0.2s ease-in;*/
-/*}*/
-
 @media screen and (max-width:1600px){
     .boxText{
         font-size:250%;
@@ -317,5 +290,8 @@ body::after {
     }
     .backButton {
         font-size: 100%;
+    }
+    .cubePage {
+        visibility: hidden;
     }
 }
