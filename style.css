@@ -147,8 +147,8 @@ body::after {
 
 /*container for cube*/
 .wrap {
-    perspective: 253vw;
-    perspective-origin: 152% -72vw;
+    perspective: 800px;
+    perspective-origin: 50% 100px;
     position: relative;
     left: 34%;
     top: 24%;
@@ -170,15 +170,15 @@ body::after {
 
 .cube {
     position: relative;
-    width: 20vh;
+    width: 200px;
     transform-style: preserve-3d;
     animation: rotate 10s infinite linear;
 }
 
 .cubediv {
     position: absolute;
-    width: 26vh;
-    height: 26vh;
+    width: 200px;
+    height: 200px;
     background-color: transparent;
     border: 3px solid black;
 
