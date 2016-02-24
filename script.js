@@ -14,9 +14,9 @@ function noDupVines(arr) {
 }
 
 //function for when songs get clicked to hide songs, and show vines
-function song_click() {
-    $('.row').hide();
-}
+//function song_click() {
+//    $('.row').hide();
+//}
 
 // /function to place song properly
 function append_songs(song, i) {
