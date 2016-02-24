@@ -5,10 +5,7 @@ body {
 }
 
 .header { /* header have liner color effect and some style*/
-    margin: 0 10%;
-    width: 80%;
     height: 30vh;
-    text-align: center;
     border-radius: 15px;
 }
 
@@ -21,7 +18,6 @@ body {
 .header h1 {
     position: absolute;
     top: 5%;
-    left: 45%;
     color: white;
     font-family: 'Lobster';
 }
@@ -29,17 +25,12 @@ body {
 .header h3 {
     position: absolute;
     top: 30%;
-    left: 35%;
     color: white;
     font-family: 'Lobster';
 }
 
-.first_part { /*this first part is showing iTunes photos and album name, This is down the header*/
-    width: 100%;
-}
-
 .row { /*first part have rows with pitcher and album name in ul*/
-    width: 80%;
+    width: 100%;
     height: 30vh;
     border: 1px solid black;
     border-radius: 15px;
@@ -50,12 +41,12 @@ body {
 }
 
 .row:hover { /*row hover effect and it's infinite animation*/
-    animation: image_display;
+    animation: rainbow;
     animation-duration: 2s;
     animation-iteration-count: infinite; /*background-color: lightgray;*/
 }
 
-@-webkit-keyframes image_display { /*row hover have this animation effect*/
+@-webkit-keyframes rainbow { /*row hover have this animation effect*/
     0% {
         background-color: rgba(205, 0, 0, 0.51);
     }
@@ -90,6 +81,7 @@ body {
         background-color: rgba(153, 40, 0, 0.51);
     }
 }
+
 .cover { /*first part rows cover have these styling*/
     width: 30%;
     height: 100%;
@@ -105,34 +97,28 @@ body {
     float: right;
 }
 
-.evenList { /*first part row un order for odd list style created dynamic class*/
-    text-align: center;
-    transform: translate(-10%, 200%);
-}
-
-.oddList { /*first part row un order for even list style dynamic class*/
-    text-align: center;
-    transform: translate(10%, 200%);
-}
-
 .boxText {
     color: white;
-    text-shadow: 1px 1px 1px gray;
-    font-size: 200%;
+    position: relative;
+    text-shadow: 2px 2px 2px black;
+    font-size: 300%;
     font-family: 'Poiret One';
     font-weight: bold;
+    margin: 30px 40px 30px 20px;
+    text-align: center;
+    text-transform: capitalize;
 }
 
 body::before, body::after { /*page load animation still in progress*/
     content: '';
-    background: rgba(0, 0, 0, 0.90);
+    background-color: rgba(0, 0, 0, .95);
     height: 100%;
     width: 50%;
     position: fixed;
-    transition-duration: 4s;
+    transition-duration: 5s;
     transform: translateX(0%);
     top: 0px;
-    animation-delay: 3s;
+    transition-delay: 1s;
     z-index: 1000;
 }
 
@@ -154,11 +140,10 @@ body::after {
 
 .vineDiv {
     display: block;
-    width: 33%;
-    height: 33%;
-    margin: auto;
+    width: 100%;
+    /*height: 33%;*/
+    /*margin: auto;*/
 }
-
 
 .wrap {
     perspective: 253vw;
@@ -177,7 +162,6 @@ body::after {
         transform: rotateX(360deg) rotateY(360deg);
     }
 }
-
 
 .cubePage {
     display: none;
@@ -200,9 +184,9 @@ body::after {
 }
 
 .imgDiv {
-    width:100%;
-    height:100%;
-    margin:0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
 }
 
 .back {
@@ -233,86 +217,105 @@ body::after {
     transform: translateZ(100px);
 }
 
-
-.evenInfoSpan{
-    font-size: 150%;
-    display:none;
-    height:55px;
-    position:relative;
-    text-align:center;
-    text-transform:uppercase;
+.evenInfoSpan, .oddInfoSpan {
+    text-shadow: 2px 2px 2px black;
+    font-size: 250%;
+    display: none;
+    /*height: 55px;*/
+    /*position: relative;*/
+    text-align: center;
+    text-transform: capitalize;
     color: white;
-    font-family: 'poiret one';
-    top:80px;
-    padding:0 10px;
-    float: right;
+    font-family: 'Poiret One';
+    /*top: 100px;*/
+    padding: 0 10px;
     font-weight: 900;
 }
 
-.oddInfoSpan{
-    font-size: 150%;
-    display:none;
-    height:55px;
-    position:relative;
-    text-align:center;
-    text-transform:uppercase;
-    color: white;
-    font-family: 'poiret one';
-    top:80px;
-    padding:0 10px;
+.evenInfoSpan {
     float: left;
-    font-weight: 900;
 }
 
-.infoSpan:after{
-    content:'';
-    position:absolute;
-    bottom:-10px;
-    left:50%;
-    margin-left:10px;
-    transform:rotate(45deg);
+.oddInfoSpan {
+    float: right;
 }
 
-.row:hover span{
-    display:block;
-    width: 300px;
+.infoSpan:after {
+    content: '';
+    /*position: absolute;*/
+    /*bottom: -10px;*/
+    /*left: 50%;*/
+    margin-left: 10px;
+    transform: rotate(45deg);
 }
 
-.niceButton {
-    background-color: purple;
-    border-style: none;
+.row:hover span {
+    display: block;
+    width: 70%;
+}
+
+.backButton {
+    background-color: black;
+    opacity: .8;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 25px;
     border-radius: 15px;
     color: white;
-    border: 2px solid black;
+    text-shadow: 2px 2px 2px black;
+    height: 10vh;
+    border: 1px solid black;
+}
+
+.backButton:hover {
+    animation: rainbow;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
 }
 
 /*.wrap .front {*/
-    /*transform: translateZ(200px);*/
+/*transform: translateZ(200px);*/
 /*}*/
 
 /*.wrap:hover .back {*/
-    /*transform: translateZ(-200px) rotateY(180deg);*/
+/*transform: translateZ(-200px) rotateY(180deg);*/
 /*}*/
 
 /*.wrap:hover .right {*/
-    /*transform: rotateY(-270deg) translateZ(100px) translateX(100px);*/
+/*transform: rotateY(-270deg) translateZ(100px) translateX(100px);*/
 /*}*/
 
 /*.wrap:hover .left {*/
-    /*transform: rotateY(270deg) translateZ(100px) translateX(-100px);*/
+/*transform: rotateY(270deg) translateZ(100px) translateX(-100px);*/
 /*}*/
 
 /*.wrap:hover .top {*/
-    /*transform: rotateX(-270deg) translateZ(100px) translateY(-100px);*/
+/*transform: rotateX(-270deg) translateZ(100px) translateY(-100px);*/
 /*}*/
 
 /*.wrap:hover .bottom {*/
-    /*transform: rotateX(270deg) translateZ(100px) translateY(100px);*/
+/*transform: rotateX(270deg) translateZ(100px) translateY(100px);*/
 /*}*/
-
 
 /*.cube > div {*/
-    /*transition: transform 0.2s ease-in;*/
+/*transition: transform 0.2s ease-in;*/
 /*}*/
+
+@media screen and (max-width:1600px){
+    .boxText{
+        font-size:250%;
+    }
+}   .evenInfoSpan, .oddInfoSpan{
+    font-size:200%;
+    }
+
+@media screen and (max-width:640px) {
+    .boxText {
+        font-size: 200%;
+    }
+    .row:hover span {
+         display: none;
+    }
+    .backButton {
+        font-size: 100%;
+    }
+}
