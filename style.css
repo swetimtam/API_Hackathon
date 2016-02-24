@@ -219,7 +219,7 @@ body::after {
 
 .evenInfoSpan, .oddInfoSpan {
     text-shadow: 2px 2px 2px black;
-    font-size: 200%;
+    font-size: 250%;
     display: none;
     /*height: 55px;*/
     /*position: relative;*/
@@ -304,7 +304,9 @@ body::after {
     .boxText{
         font-size:250%;
     }
-}
+}   .evenInfoSpan, .oddInfoSpan{
+    font-size:200%;
+    }
 
 @media screen and (max-width:640px) {
     .boxText {
