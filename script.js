@@ -7,19 +7,15 @@ function noDupVines(arr) {
     var output = {};
     var len = arr.length;
     for (var i = 0; i < len; i++) {
+        //if not null then enter
         if (arr[i] !== null) {
+            //set store key in output object, if same key then replace existing one
             output[arr[i].author_url] = arr[i];
         }
     }
     return output;
 }
-
-//function for when songs get clicked to hide songs, and show vines
-//function song_click() {
-//    $('.row').hide();
-//}
-
-// /function to place song properly
+// /function to dynamically creates rows with song information
 function append_songs(song, i) {
     if (i % 2 == 0) {
         var spanTextGenre = 'Genre: ' + song.genre;
@@ -45,7 +41,6 @@ function append_songs(song, i) {
             class: 'evenInfoSpan',
             text: spanTextRelease
         });
-
     }
     else {
         var spanTextGenre = 'Genre: ' + song.genre;
@@ -75,18 +70,24 @@ function append_songs(song, i) {
     $(songDiv).append(songArt).append(songInfo).append(songInfoBox2).append(songInfoBox);
     $(songDiv).on('click', function () {
         //console.log(song.name + song.song);
+        //hide all the rows
         $(".row").hide();
+        //creates a cube, passes photo to put on cube
         cubePhoto(song.albumArt);
+        //display the cube
         $(".cubePage").show();
+        //ajax call that gets passed the artist name and song name to search for
         getVines(song.name, song.song);
         setTimeout(function () {
             $('.cubePage').hide();
+            //dynamic button to return to home layout
             var button = $("<button>", {
                 class: "returnToMain backButton col-xs-3 col-md-2",
                 text: "Go Back",
                 style: "position:fixed"
             });
             $('.main-content').prepend(button);
+            //removes cube and brings rows back
             $('.returnToMain').on("click", function () {
                 console.log("returnToMain");
                 $('.vineDiv').remove();
@@ -98,28 +99,27 @@ function append_songs(song, i) {
         }, 4000);
     });
 }
-
+//function with ajax call to search name + song and return related vines
 function getVines(name,song) {
-    var data = {
-        search_term: name + " " + song
-    };
+    //var data = {
+    //    search_term: name + " " + song
+    //};
     $.ajax({
         dataType: 'json',
         url: 'http://s-apis.learningfuze.com/hackathon/vine/index.php',
-        data: data,
+        data: {search_term: name + " " + song},
         cache: false,
         success: function (response) {
             console.log("success", response);
-            output = response;
-            var test = noDupVines(output.vines);
+            //output = response;
+            var test = noDupVines(response.vines);
             console.log("This is the clean list: ", test);
             //var vineContainer = $("<div>",{
             //    class:'vineContainer'
             //});
             //$('.main-content').append(vineContainer);
-
             for (var k in test) {
-                if (test.hasOwnProperty(k)) {
+                //if (test.hasOwnProperty(k)) {
                     var vineDiv = $("<div>",{
                         class:"vineDiv col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3"
                     });
@@ -127,21 +127,19 @@ function getVines(name,song) {
                         class: "col-xs-12"
                     });
                     $('.main-content').append(vineDiv);
-                    setTimeout(function(){
-
-                    },1000);
-                }
+                    //setTimeout(function(){
+                    //
+                    //},1000);
+                //}
             }
         },
         error: function (response) {
             console.log("error message");
         }
-
     })
 }
-
 function cubePhoto(songImage) {
-    for (var i = 0; i < top10Music.length; i++) {
+    for (var i = 0; i < 6; i++) {
         var songart = $('<img>', {
             src: songImage,
             class: 'imgDiv'
@@ -155,10 +153,9 @@ function cubePhoto(songImage) {
         $(cube).append(songart);
     }
 }
-
 $(document).ready(function () {
     //initial animation
-    $("body").addClass('animate');
+    $("body").addClass('curtain');
 
     $.ajax({
         dataType: 'json',
