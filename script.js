@@ -1,4 +1,4 @@
-//global variables
+H//global variables
 var top10Music = [];
 
 //function to compare author of vines to each other, if the same, then remove duplicates
@@ -15,7 +15,6 @@ function noDupVines(arr) {
     }
     return output;
 }
-
 // /function to dynamically creates rows with song information
 function append_songs(song, i) {
     if (i % 2 == 0) {
@@ -42,7 +41,6 @@ function append_songs(song, i) {
             class: 'evenInfoSpan',
             text: spanTextRelease
         });
-
     }
     else {
         var spanTextGenre = 'Genre: ' + song.genre;
@@ -101,7 +99,6 @@ function append_songs(song, i) {
         }, 4000);
     });
 }
-
 //function with ajax call to search name + song and return related vines
 function getVines(name,song) {
     //var data = {
@@ -121,7 +118,6 @@ function getVines(name,song) {
             //    class:'vineContainer'
             //});
             //$('.main-content').append(vineContainer);
-
             for (var k in test) {
                 //if (test.hasOwnProperty(k)) {
                     var vineDiv = $("<div>",{
@@ -140,10 +136,8 @@ function getVines(name,song) {
         error: function (response) {
             console.log("error message");
         }
-
     })
 }
-
 function cubePhoto(songImage) {
     for (var i = 0; i < 6; i++) {
         var songart = $('<img>', {
@@ -159,7 +153,6 @@ function cubePhoto(songImage) {
         $(cube).append(songart);
     }
 }
-
 $(document).ready(function () {
     //initial animation
     $("body").addClass('curtain');
