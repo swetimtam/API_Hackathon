@@ -1,4 +1,4 @@
-H//global variables
+//global variables
 var top10Music = [];
 
 //function to compare author of vines to each other, if the same, then remove duplicates
